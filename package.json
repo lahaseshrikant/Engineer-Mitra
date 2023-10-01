@@ -1,0 +1,28 @@
+{
+  "name": "engineering-materials",
+  "version": "1.0.0",
+  "description": "In this project,I will try to provide Engineering Material available to evryone. From college previous year papers to some hard problems of engineering.",
+  "main": "index.js",
+  "scripts": {
+    "test": "No test specified"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lahaseshrikant/Engineer-Mitra.git"
+  },
+  "keywords": [
+    "Engineering",
+    "Engineer",
+    "Engineering",
+    "Materials",
+    "Engineering-Mitra",
+    "engineering-mitra",
+    "engineeringmitra"
+  ],
+  "author": "\"name\": \"Shrikant Lahase\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lahaseshrikant/Engineer-Mitra/issues"
+  },
+  "homepage": "https://github.com/lahaseshrikant/Engineer-Mitra#readme"
+}
