@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "No test specified",
-    "build": "npm run build"
+    "build": "npm ci && npm run build"
   },
   "repository": {
     "type": "git",
