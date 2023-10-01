@@ -1,0 +1,79 @@
+.heading {
+    text-align: center;
+}
+.ChooseBranch {
+  display: grid;
+  grid-column-gap: 4vw;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  margin: auto;
+  grid-row-gap: 50px;
+  justify-content: center;
+}
+
+.ChooseBranch-item {
+    background-color: white;
+    border-radius: 10%;
+    font-size: 1vw;
+    color: black;
+    width: 15vw;
+    height: 15vh;
+    margin: auto;
+    text-align: center;
+    background-size: cover;
+
+}
+
+.branchtext {
+    color: white;
+    text-decoration: none;
+    background: black;
+    align-content: center;
+    z-index:inherit; 
+}
+#civilimg {
+    background-image: url(Images/civil.jpeg);
+}
+
+#cseimg {
+    background-image: url(Images/cse.webp);
+}
+
+#mechimg {
+    background-image: url(Images/mechanical.jpg);
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+.ChooseBranch {
+    display: flex;
+    flex-direction: column;
+}
+
+.ChooseBranch-item{
+        display: contents;
+        position: absolute;
+        font-size: 3vh;
+    }
+    
+}
+
+
+
+
+
+
+.branch {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+
+
+.branchimg {
+    width: 250px;
+    margin-right: 50px;
+}
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Engineer - Login</title>
+    <link rel="stylesheet" href="StyleEngineer.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta lang="en">
+    <script src="scriptCommon.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4998839759449166"
+     crossorigin="anonymous"></script>
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-4998839759449166?ers=1" nonce="UkoDTw4CWBy8ntkKzQlDoQ"></script><script nonce="UkoDTw4CWBy8ntkKzQlDoQ">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+</head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2NB2EBPJQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J2NB2EBPJQ');
+    </script>
+<body>
+  <header>
+    <a href="index.html"><img class="logo" src="Images/Logo.png" alt="Engineer Mitra"></a>
+    
+    <nav class="navbar" id="navbar">
+        <a href="index.html">Home</a>
+        <a href="Material.html">Material</a>
+        <a href="contribute.html">Upload</a>
+        <a href="about.html">About</a>
+        <a href="login.html">Log In</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction1()">&#9776;</a>
+    </nav>
+    <hr id="horizontalLineAfterHeader">
+</header>
+    <main>
+        <section class="login-section">
+            <h2 class="section-heading">User Login</h2>
+            <form class="login-form">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required autocomplete="email"> <!-- Add autocomplete attribute -->
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password"> <!-- Add autocomplete attribute -->
+                <button id="loginButton" type="submit" value="login">Login</button>
+                <a href="signup.html" id="createNewAccount">Create New Account</a>
+            </form>
+
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Engineer Mitra. All rights reserved.</p>
+    </footer>
+    
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+  import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAvsKMRtnF0CY0RvNbG6_XoleZhJOs6Ub0",
+    authDomain: "engineer-mitra.firebaseapp.com",
+    projectId: "engineer-mitra",
+    storageBucket: "engineer-mitra.appspot.com",
+    messagingSenderId: "999063294330",
+    appId: "1:999063294330:web:d7b8b673986f858e53c6c3",
+    measurementId: "G-J2NB2EBPJQ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+
+    
+loginButton.addEventListener('click', (e) => {
+    
+    var email = document.getElementById('email').value;
+    var password =document.getElementById('password').value;
+    
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+        const dt = new Date();
+        
+        update(ref(database, 'users/' + user.uid),{
+            last_login : dt,
+        })
+
+        window.location.href = "/profile.html";
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        
+        alert(errorMessage);
+      });
+
+})
+</script>
+    
+</html>
