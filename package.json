@@ -7,7 +7,6 @@
     "async": "^3.2.4",
     "balanced-match": "^2.0.0",
     "brace-expansion": "^2.0.1",
-    "build": "^0.1.4",
     "ci": "^2.3.0",
     "color": "^4.2.3",
     "color-convert": "^2.0.1",
@@ -23,7 +22,6 @@
     "is-arrayish": "^0.3.2",
     "is-stream": "^3.0.0",
     "jsmin": "^1.0.1",
-    "jxLoader": "^0.1.1",
     "kuler": "^2.0.0",
     "logform": "^2.5.1",
     "makeerror": "^1.0.12",
@@ -51,7 +49,7 @@
     "yaml": "^2.3.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build"
   },
   "author": "",
   "license": "ISC"
