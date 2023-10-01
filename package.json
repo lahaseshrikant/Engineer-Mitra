@@ -4,7 +4,8 @@
   "description": "In this project,I will try to provide Engineering Material available to evryone. From college previous year papers to some hard problems of engineering.",
   "main": "index.js",
   "scripts": {
-    "test": "No test specified"
+    "test": "No test specified",
+    "build": "npm install"
   },
   "repository": {
     "type": "git",
