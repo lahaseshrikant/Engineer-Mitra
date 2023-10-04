@@ -6,15 +6,66 @@
       "**/.*",
       "**/node_modules/**"
     ],
+
     "rewrites": [
       {
-        "source": "**/*.html",
-        "destination": "/$1"
+        "source": "/Home",
+        "destination": "/index.html"
       },
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/Material",
+        "destination": "/Material.html"
+      },
+      {
+        "source": "/Contribute",
+        "destination": "/contribute.html"
+      },
+      {
+        "source": "/About",
+        "destination": "/about.html"
+      },
+      {
+        "source": "/Log-In",
+        "destination": "/login.html"
+      },
+      {
+        "source": "/Material/Civil",
+        "destination": "/Material/civil.html"
       }
-    ]
+    ],
+
+    "redirects": [
+      {
+        "source": "*index.html",
+        "destination": "/Home",
+        "type": 301
+      },
+      {
+        "source": "*Material.html",
+        "destination": "/Material",
+        "type": 301
+      },
+      {
+        "source": "*contribute.html",
+        "destination": "/Contribute",
+        "type": 301
+      },
+      {
+        "source": "*about.html",
+        "destination": "/About",
+        "type": 301
+      },
+      {
+        "source": "*login.html",
+        "destination": "/Log-In",
+        "type": 301
+      },
+      {
+        "source": "*Material/civil.html",
+        "destination": "/Material/Civil",
+        "type": 301
+      }
+    ],
+    "trailingSlash": false
   }
 }
