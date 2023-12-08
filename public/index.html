@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en"></html>
     <head>
         <meta charset="UTF-8">
-        <title>Engineer</title>
-        <link rel="stylesheet" href="StyleEngineer.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta lang="en">
+        <title>Engineer Mitra</title>
+        <link rel="icon" type="image/x-icon" href="Images/Logo.png">
+        <link rel="stylesheet" href="StyleEngineer.css">
         <script src="scriptCommon.js"></script>
         
         <!-- Google Ads -->
@@ -30,35 +31,57 @@
     </script>
     
     <!-- Main Content -->
+
     <body>
-        <header>
-            <a href="index.html"><img class="logo" src="Images/Logo.png" alt="Engineer Mitra"></a>
+        <section id="FirstView">
+            <header>
+                <a href="index.html"><img class="logo" src="Images/Logo.png" alt="Engineer Mitra"></a>
+                
+                <nav class="navbar" id="navbar">
+                    <a href="index.html">Home</a>
+                    <a href="Material.html">Material</a>
+                    <a href="contribute.html">Upload</a>
+                    <a href="about.html">About</a>
+                    <a href="login.html">Log In</a>
+                    <a href="javascript:void(0);" class="icon" id="navbarButton" onclick="myFunction1()">&#9776;</a>
+                </nav>
+                <hr id="horizontalLineAfterHeader">
+            </header>
+
             
-            <nav class="navbar" id="navbar">
-                <a href="index.html">Home</a>
-                <a href="Material.html">Material</a>
-                <a href="contribute.html">Upload</a>
-                <a href="about.html">About</a>
-                <a href="login.html">Log In</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction1()">&#9776;</a>
-            </nav>
-            <hr id="horizontalLineAfterHeader">
-        </header>
+            
+            <h1 id="namskar"><span lang="mr"><b>नमस्कार<br></b></span></h1>
+            <blockquote style="text-align: center">"This website is created by Engineer, Run by Engineer, For Engineer"</blockquote>
+            <h2>Engineer's, It's Your Place :-)</h2>
+            <h3>
+                <a href="Material.html" class="materiallink">
+                    Go and check study material here
+                    <button class="materialbutton">Material</button>
+                </a>
+            </h3>
+        </section>
         
-        
-        
-        <h1 id="namskar"><span lang="mr"><b>नमस्कार<br></b></span></h1>
-        <blockquote style="text-align: center">"This website is created by Engineer, Run by Engineer, For Engineer"</blockquote>
-        <h2>Engineer's, It's Your Place :-)</h2>
-        <h3>
-            <a href="Material.html" class="materiallink">
-                Go and check study material here
-                <button class="materialbutton">Material</button>
-            </a>
-        </h3>
-        
+        <div class="container">
+            <div class="section" id="section1">
+                <h2>Section 1</h2>
+                <p>This is the content of Section 1.</p>
+            </div>
+            <div class="section" id="section2">
+                <h2>Section 2</h2>
+                <p>This is the content of Section 2.</p>
+            </div>
+            <div class="section" id="section3">
+                <h2>Section 3</h2>
+                <p>This is the content of Section 3.</p>
+            </div>
+            <div class="section" id="section4">
+                <h2>Section 4</h2>
+                <p>This is the content of Section 4.</p>
+            </div>
+        </div>
+    
+        <footer id="HomeFooter">
+            <p>&copy; 2023 Engineer Mitra. All rights reserved.</p>
+        </footer>
     </body>
-    <footer>
-        <p>&copy; 2023 Engineer Mitra. All rights reserved.</p>
-    </footer>
 </html>

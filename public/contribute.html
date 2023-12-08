@@ -1,40 +1,112 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Engineer</title>
-        <link rel="stylesheet" href="StyleEngineer.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta lang="en">
-        <script src="scriptCommon.js"></script>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4998839759449166"
-     crossorigin="anonymous"></script>
-        <script async src="https://fundingchoicesmessages.google.com/i/pub-4998839759449166?ers=1" nonce="UkoDTw4CWBy8ntkKzQlDoQ"></script><script nonce="UkoDTw4CWBy8ntkKzQlDoQ">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
-    </head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2NB2EBPJQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-J2NB2EBPJQ');
-    </script>
-    <body>
-        <header>
-            <a href="index.html"><img class="logo" src="Images/Logo.png" alt="Engineer Mitra"></a>
-            
-            <nav class="navbar" id="navbar">
-                <a href="index.html">Home</a>
-                <a href="Material.html">Material</a>
-                <a href="contribute.html">Upload</a>
-                <a href="about.html">About</a>
-                <a href="login.html">Log In</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction1()">&#9776;</a>
-            </nav>
-            <hr id="horizontalLineAfterHeader">
-        </header>
-        <h1>Upload a Material Here & Get Some Perks</h1>
-        <div></div>
-    </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineer</title>
+    <link rel="stylesheet" href="StyleEngineer.css">
+    <link rel="stylesheet" href="StyleContribute.css">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4998839759449166"
+    crossorigin="anonymous"></script>
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-4998839759449166?ers=1" nonce="UkoDTw4CWBy8ntkKzQlDoQ"></script><script nonce="UkoDTw4CWBy8ntkKzQlDoQ">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J2NB2EBPJQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-J2NB2EBPJQ');
+</script>
+
+<body>
+    <header>
+        <a href="index.html"><img class="logo" src="Images/Logo.png" alt="Engineer Mitra"></a>
+        
+        <nav class="navbar" id="navbar">
+            <a href="index.html">Home</a>
+            <a href="Material.html">Material</a>
+            <a href="contribute.html">Upload</a>
+            <a href="about.html">About</a>
+            <a href="login.html">Log In</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction1()">&#9776;</a>
+        </nav>
+        <hr id="horizontalLineAfterHeader">
+    </header>
+
+    <div class="containerContribute">
+        <h1>Contribute to Engineer Mitra</h1>
+        <p>Engineer Mitra is a platform for students to share their study material with other students. You can contribute to Engineer Mitra by uploading your study material.</p>
+        
+        <form id="contributeForm">
+            <!-- Form fields for user details -->
+            <label for="uploadType">Choose Contribution Type:</label>
+            <select id="uploadType" name="uploadType">
+                <option value="file">Upload File</option>
+                <option value="article">Write Article</option>
+            </select>
+
+            <div id="fileInputSection">
+                <label for="fileUpload">Upload File:</label>
+                <input type="file" id="fileUpload" name="fileUpload" accept=".pdf, .doc, .docx">
+            </div>
+
+            <div id="articleInputSection">
+                <label for="articleContent">Write Article:</label>
+                <textarea id="articleContent" name="articleContent" rows="6"></textarea>
+            </div>
+
+            <label for="branch">Choose Branch:</label>
+            <label for="branch">Choose Branch:</label>
+            <select id="branch" name="branch" aria-placeholder="Select Branch">
+                <option value="">Choose Branch</option>
+                <option value="civil">Civil</option>
+                <option value="mechanical">Mechanical</option>
+                <option value="electrical">Electrical</option>
+                <option value="computer">Computer</option>
+                <option value="electronics">Electronics</option>
+                <option value="chemical">Chemical</option>
+                <!-- Add more options based on your requirements -->
+            </select>
+            <label for="subject">Choose Subject:</label>
+            <select id="subject" name="subject" placeholder="Choose Subject">
+                <!-- Subjects will be added here based on the selected branch -->
+            </select>
+
+            <label for="materialType">Material Type:</label>
+            <select id="materialType" name="materialType">
+                <option value="">Choose Material Type</option>
+                <option value="assignment">Assignment</option>
+                <option value="previousYearPaper">Previous Year Paper</option>
+                <option value="notes">Notes</option>
+                <option value="book">Book</option>
+                <option value="other">Other</option>
+                <!-- Add more options based on your requirements -->
+            </select>
+
+            <label for="year" style="display: none;">Year:</label>
+            <input type="text" id="year" name="year" placeholder="Enter Year" style="display: none;">
+            <label for="college">College:</label>
+            <input type="text" id="college" name="college" placeholder="Enter College">
+            <label for="submissionDate" style="display: none;">Submission Date:</label>
+            <input type="date" id="submissionDate" name="submissionDate" style="display: none;">
+
+            <button type="submit" onclick="submitContribution()">Submit</button>
+        </form>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Engineer Mitra. All rights reserved.</p>
+    </footer>
+
+    <script src="firebase.js"></script>
+    <script src="scriptCommon.js"></script>
+    <script src="scriptContribute.js"></script>
+</body>
     
 </html>
