@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="StyleEngineer.css">
     <link rel="stylesheet" href="StyleContribute.css">
 
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js"></script>
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4998839759449166"
     crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-4998839759449166?ers=1" nonce="UkoDTw4CWBy8ntkKzQlDoQ"></script><script nonce="UkoDTw4CWBy8ntkKzQlDoQ">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -56,19 +59,18 @@
                 <option value="article">Write Article</option>
             </select>
 
-            <div id="fileInputSection">
+            <div id="fileInputSection" style="display: block;">
                 <label for="fileUpload">Upload File:</label>
                 <input type="file" id="fileUpload" name="fileUpload" accept=".pdf, .doc, .docx">
             </div>
 
-            <div id="articleInputSection">
+            <div id="articleInputSection" style="display: none;">
                 <label for="articleContent">Write Article:</label>
                 <textarea id="articleContent" name="articleContent" rows="6"></textarea>
             </div>
-
+            <br>
             <label for="branch">Choose Branch:</label>
-            <label for="branch">Choose Branch:</label>
-            <select id="branch" name="branch" aria-placeholder="Select Branch">
+            <select id="branch" name="branch" placeholder="Select Branch">
                 <option value="">Choose Branch</option>
                 <option value="civil">Civil</option>
                 <option value="mechanical">Mechanical</option>
@@ -109,9 +111,10 @@
         <p>&copy; 2023 Engineer Mitra. All rights reserved.</p>
     </footer>
 
-    <script src="firebase.js"></script>
     <script src="scriptCommon.js"></script>
+    <script src="firebase.js"></script>
     <script src="scriptContribute.js"></script>
+    
 </body>
     
 </html>
