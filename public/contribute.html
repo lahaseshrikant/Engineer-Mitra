@@ -4,29 +4,34 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Engineer Mitra is a platform for engineering students to share their study material and notes with other students.">
-    <meta name="keywords" content="Engineer Mitra, Engineer, Mitra, Engineering, Notes, Study Material, Material, Study, Notes, Engineering Notes, Engineering Study Material, Engineering Material, Engineering Notes for all branches, Engineering Study Material for all branches, Engineering Material for all branches, Engineering Notes for all semesters, Engineering Study Material for all semesters, Engineering Material for all semesters, Engineering Notes for all years, Engineering Study Material for all years, Engineering Material for all years, Engineering Notes for all subjects, Engineering Study Material for all subjects, Engineering Material for all subjects, Engineering Notes for all universities, Engineering Study Material for all universities, Engineering Material for all universities">
+    <meta name="description"
+        content="Engineer Mitra is a platform for engineering students to share their study material and notes with other students.">
+    <meta name="keywords"
+        content="Engineer Mitra, Engineer, Mitra, Engineering, Notes, Study Material, Material, Study, Notes, Engineering Notes, Engineering Study Material, Engineering Material, Engineering Notes for all branches, Engineering Study Material for all branches, Engineering Material for all branches, Engineering Notes for all semesters, Engineering Study Material for all semesters, Engineering Material for all semesters, Engineering Notes for all years, Engineering Study Material for all years, Engineering Material for all years, Engineering Notes for all subjects, Engineering Study Material for all subjects, Engineering Material for all subjects, Engineering Notes for all universities, Engineering Study Material for all universities, Engineering Material for all universities">
     <meta name="author" content="Engineer Mitra">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Engineer</title>
     <link rel="icon" type="image/x-icon" href="Images/Logo.png">
     <link rel="stylesheet" href="StyleEngineer.css">
     <link rel="stylesheet" href="StyleContribute.css">
 
-    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4998839759449166"
-    crossorigin="anonymous"></script>
-    <script async src="https://fundingchoicesmessages.google.com/i/pub-4998839759449166?ers=1" nonce="UkoDTw4CWBy8ntkKzQlDoQ"></script><script nonce="UkoDTw4CWBy8ntkKzQlDoQ">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+        crossorigin="anonymous"></script>
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-4998839759449166?ers=1"
+        nonce="UkoDTw4CWBy8ntkKzQlDoQ"></script>
+    <script
+        nonce="UkoDTw4CWBy8ntkKzQlDoQ">(function () { function signalGooglefcPresent() { if (!window.frames['googlefcPresent']) { if (document.body) { const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe); } else { setTimeout(signalGooglefcPresent, 0); } } } signalGooglefcPresent(); })();</script>
 </head>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2NB2EBPJQ"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-J2NB2EBPJQ');
@@ -35,7 +40,7 @@
 <body>
     <header>
         <a href="index.html"><img class="logo" src="Images/Logo.png" alt="Engineer Mitra"></a>
-        
+
         <nav class="navbar" id="navbar">
             <a href="index.html">Home</a>
             <a href="Material.html">Material</a>
@@ -49,8 +54,9 @@
 
     <div class="containerContribute">
         <h1>Contribute to Engineer Mitra</h1>
-        <p>Engineer Mitra is a platform for students to share their study material with other students. You can contribute to Engineer Mitra by uploading your study material.</p>
-        
+        <p>Engineer Mitra is a platform for students to share their study material with other students. You can
+            contribute to Engineer Mitra by uploading your study material.</p>
+
         <form id="contributeForm">
             <!-- Form fields for user details -->
             <label for="uploadType">Choose Contribution Type:</label>
@@ -103,18 +109,17 @@
             <label for="submissionDate" style="display: none;">Submission Date:</label>
             <input type="date" id="submissionDate" name="submissionDate" style="display: none;">
 
-            <button type="submit" onclick="submitContribution()">Submit</button>
+            <input type="submit" value="Submit Contribution">
         </form>
     </div>
-    
+
     <footer>
         <p>&copy; 2023 Engineer Mitra. All rights reserved.</p>
     </footer>
 
     <script src="scriptCommon.js"></script>
-    <script src="firebase.js"></script>
-    <script src="scriptContribute.js"></script>
-    
+    <script type="module" src="scriptContribute.js"></script>
+
 </body>
-    
+
 </html>

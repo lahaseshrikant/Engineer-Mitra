@@ -1,3 +1,100 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAvsKMRtnF0CY0RvNbG6_XoleZhJOs6Ub0",
+    authDomain: "engineer-mitra.firebaseapp.com",
+    databaseURL: "https://engineer-mitra-default-rtdb.firebaseio.com",
+    projectId: "engineer-mitra",
+    storageBucket: "engineer-mitra.appspot.com",
+    messagingSenderId: "999063294330",
+    appId: "1:999063294330:web:d7b8b673986f858e53c6c3",
+    measurementId: "G-J2NB2EBPJQ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Get a reference to the Firestore service
+const db = getFirestore(app);
+
+// Get a reference to the Firebase Storage service
+const storage = getStorage(app);
+
+async function submitContribution() {
+    const form = document.getElementById('contributeForm');
+    const file = form.fileUpload.files[0];
+
+    // Get user inputs
+    let branch = form.branch.value;
+    let materialType = form.materialType.value;
+    let subject = form.subject.value;
+    let college = form.college.value;
+
+    // Check if subject or college is not selected
+    if (!branch || branch === 'Choose Branch') {
+        branch = '.NoBranch';  // Set branch to 'NoBranch' if branch is not selected
+    }
+    if (!materialType || materialType === 'Choose Material Type') {
+        materialType = '.NoMaterialType';
+    }
+    if (!subject || subject === 'Select Subject') {
+        subject = '.NoSubject';
+    }
+    if (!college || college === 'Select College') {
+        college = '.NoCollege';
+    }
+    // Create a dynamic path based on user inputs
+    const filePath = `contributions/${college}/${branch}/${subject}/${materialType}/${file.name}`;
+
+    // Create a storage reference
+    const storageRef = ref(storage, filePath);
+
+    // Upload file to Firebase Storage
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    // Listen for state changes, errors, and completion of the upload.
+    uploadTask.on('state_changed',
+        (snapshot) => {
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+        },
+        (error) => {
+            // Handle unsuccessful uploads
+            console.error('Upload failed:', error);
+        },
+        () => {
+            // Handle successful uploads on complete
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                console.log('File available at', downloadURL);
+
+                // Create contribution data
+                const contributionData = {
+                    branch: form.branch.value,
+                    subject: form.subject.value,
+                    materialType: form.materialType.value,
+                    college: form.college.value,
+                    year: form.year.value,
+                    submissionDate: form.submissionDate.value,
+                    article: form.articleContent.value,
+                    file: downloadURL,
+                };
+
+                // Store data in Firestore
+                addDoc(collection(db, "contributions"), contributionData)
+                    .then((docRef) => {
+                        console.log("Document written with ID: ", docRef.id);
+                    })
+                    .catch((error) => {
+                        console.error("Error adding document: ", error);
+                    });
+            });
+        }
+    );
+}
+
 window.onload = function () {
     const uploadType = document.getElementById('uploadType');
     const fileInputSection = document.getElementById('fileInputSection');
@@ -7,13 +104,10 @@ window.onload = function () {
     const submissionDate = document.getElementById('submissionDate');
 
     uploadType.addEventListener('change', function () {
-        console.log('uploadType change event triggered');
         if (this.value === 'file') {
-            console.log('uploadType is file');
             fileInputSection.style.display = 'block';
             articleInputSection.style.display = 'none';
         } else if (this.value === 'article') {
-            console.log('uploadType is article');
             fileInputSection.style.display = 'none';
             articleInputSection.style.display = 'block';
         }
@@ -63,46 +157,10 @@ window.onload = function () {
             subjectsSelect.add(option);
         });
     });
+
+    // Add an event listener to the form to trigger the submitContribution function
+    document.getElementById('contributeForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        submitContribution();
+    });
 }
-
-import { db } from './firebase.js';
-
-function submitContribution() {
-    const form = document.getElementById('contributeForm');
-    const uploadType = form.uploadType.value;
-
-    const contributionData = {
-        uploadType: uploadType,
-        branch: form.branch.value,
-        subject: form.subject.value,
-        materialType: form.materialType.value,
-        college: form.college.value,
-        // Add other fields...
-
-        // Additional data (e.g., verification status)
-        verified: false,
-    };
-
-    if (form.uploadType.value === 'file') {
-        contributionData.file = form.fileUpload.files[0];
-    } else if (form.uploadType.value === 'article') {
-        contributionData.articleContent = form.articleContent.value;
-    }
-
-
-    // Store data in Firestore
-    // Store data in Firestore
-    db.collection('contributions').add(contributionData)
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-        });
-}
-
-// Add an event listener to the form to trigger the submitContribution function
-document.getElementById('contributeForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    submitContribution();
-});

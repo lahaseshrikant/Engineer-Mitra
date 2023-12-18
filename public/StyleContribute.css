@@ -23,6 +23,7 @@ input[type="text"], input[type="date"], select {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    color: black;
 }
 
 button[type="submit"] {
