@@ -1,29 +1,29 @@
-.logo {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 8px;
-    left: 10px;
-}
-
 header {
     width: 100%;
     height: 20%;
     min-height: 100px;
 }
 
+.logo {
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
 /* Style for the navigation bar */
 .navbar {
+    float: right;
     display: flex;
-    justify-content: flex-end; /* Align links to the right */
+    justify-content: flex-end;
+    /* Align links to the right */
     align-items: center;
     overflow: hidden;
     padding: 0px;
-    margin: 5px; 
-    font-family: -apple-system,BlinkMacSystemFont,Trebuchet MS,Roboto,Ubuntu,sans-serif;
+    margin: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
 }
 
-        /* Navigation bar links */
+/* Navigation bar links */
 .navbar a {
     color: white;
     text-align: center;
@@ -31,7 +31,7 @@ header {
     text-decoration: none;
 }
 
-        /* On hover, the links will change color */
+/* On hover, the links will change color */
 .navbar a:hover {
     background-color: #585b63;
     border-bottom-left-radius: 25%;
@@ -43,16 +43,24 @@ header {
     display: none;
 }
 
+#horizontalLineAfterHeader {
+    border: 1px solid #2d2c2c;
+    width: 100%;
+    position: absolute;
+    top: 8vh;
+}
+
 @media screen and (max-width: 600px) {
     .navbar {
         flex-direction: column;
         align-items: flex-end;
-        
+
     }
 
     .navbar .icon {
         display: block;
-        order: -1; /* Place the icon at the top on small screens */
+        order: -1;
+        /* Place the icon at the top on small screens */
     }
 
     .navbar a:not(:last-child) {
@@ -64,9 +72,12 @@ header {
         text-align: center;
         color: #000;
     }
+
     .navbar.responsive {
-        overflow-y: auto; /* Enable vertical scrolling for the menu */
-        max-height: 100vh; /* Set the maximum height for the menu */
+        overflow-y: auto;
+        /* Enable vertical scrolling for the menu */
+        max-height: 100vh;
+        /* Set the maximum height for the menu */
         position: absolute;
         right: 0px;
         z-index: 1;
@@ -74,28 +85,26 @@ header {
         border-bottom-left-radius: 50%;
         background: linear-gradient(to bottom, #0072FF, #00C6FF);
     }
+
     .navbar.responsive a:hover {
-        font-size:larger;
+        font-size: larger;
         color: white;
         background: none;
-    }    
-}
+    }
 
-#horizontalLineAfterHeader {
-    outline-color: azure; 
-    width: 100%; 
-    position: absolute; 
-    top: 8vh;
+    #horizontalLineAfterHeader {
+        visibility: hidden;
+    }
 }
-
 
 .ChooseBranch {
     color: white;
 }
-#namskar{
+
+#namskar {
     text-align: center;
-    font-size: max(10vw,10vh);
-    background: linear-gradient(180deg,#1b2e61,#2962ff 13.02%,#726fff 28.12%,#c883ff 41.15%,#ab4df8 54.69%,#d1007e 69.27%,#dc132b 84.9%,#541c1c);
+    font-size: max(10vw, 10vh);
+    background: linear-gradient(180deg, #1b2e61, #2962ff 13.02%, #726fff 28.12%, #c883ff 41.15%, #ab4df8 54.69%, #d1007e 69.27%, #dc132b 84.9%, #541c1c);
     -webkit-background-clip: text;
     background-clip: text;
     background-repeat: no-repeat;
@@ -106,13 +115,14 @@ header {
 
 @media screen and (min-width: 1920px) {
     #namskar {
-        padding-bottom:20px;
+        padding-bottom: 20px;
     }
 }
 
-h2{
+h2 {
     text-align: center;
 }
+
 body {
     background-color: #000;
     color: white;
@@ -126,11 +136,13 @@ div1 {
     flex-direction: row;
     position: absolute;
 }
+
 .Home_TechnicalSkill_Button {
-    background: linear-gradient(270deg,#1b2e61,#2962ff 13.02%,#726fff 28.12%,#c883ff 41.15%,#ab4df8 54.69%,#d1007e 69.27%,#dc132b 84.9%,#541c1c);
+    background: linear-gradient(270deg, #1b2e61, #2962ff 13.02%, #726fff 28.12%, #c883ff 41.15%, #ab4df8 54.69%, #d1007e 69.27%, #dc132b 84.9%, #541c1c);
     margin: 2vw;
     width: 100px;
     height: 50px;
+
     .round-tab-button-JbssaNvk {
         -webkit-tap-highlight-color: transparent;
         align-items: center;
@@ -149,55 +161,55 @@ div1 {
 }
 
 .Home_EngineeringEducation_Button {
-    background: linear-gradient(270deg,#1b2e61,#2962ff 13.02%,#726fff 28.12%,#c883ff 41.15%,#ab4df8 54.69%,#d1007e 69.27%,#dc132b 84.9%,#541c1c);
+    background: linear-gradient(270deg, #1b2e61, #2962ff 13.02%, #726fff 28.12%, #c883ff 41.15%, #ab4df8 54.69%, #d1007e 69.27%, #dc132b 84.9%, #541c1c);
     margin: 2vw;
     width: 100px;
     height: 50px;
 }
 
 .wholeDivDom {
-  margin: 0.7%;
+    margin: 0.7%;
 }
 
 .outer {
-  width: 100%;
-  height: 150px;
-  background: black;
-  position: relative;
+    width: 100%;
+    height: 150px;
+    background: black;
+    position: relative;
 }
 
 div:before,
 div:after {
-  content: "";
-  position: absolute;
-  height: 30%;
-  width: 10%;
+    content: "";
+    position: absolute;
+    height: 30%;
+    width: 10%;
 }
 
 .outer:after {
-  content: "";
-  right: 0;
-  top: 0;
-  border-right: 3px solid #fff;
-  border-top: 3px solid #fff;
+    content: "";
+    right: 0;
+    top: 0;
+    border-right: 3px solid #fff;
+    border-top: 3px solid #fff;
 }
 
 .outer:before {
-  border-left: 0px solid #fff;
-  border-top: 0px solid #fff;
+    border-left: 0px solid #fff;
+    border-top: 0px solid #fff;
 }
 
 .inner:before {
-  bottom: 0;
-  border-left: 3px solid #fff;
-  border-bottom: 3px solid #fff;
+    bottom: 0;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
 }
 
 .inner:after {
-  bottom: 0;
-  right: 0;
-  border-right: 0px solid #fff;
-  border-bottom: 0px solid #fff;
+    bottom: 0;
+    right: 0;
+    border-right: 0px solid #fff;
+    border-bottom: 0px solid #fff;
 }
 
 #user_upload_messege {
@@ -239,11 +251,11 @@ footer {
 }
 
 #HomeFooter {
-  background-color: #f5f5f7;
-  color: black;
-  padding: 20px;
-  text-align: center;
-  min-height: 20vh;
+    background-color: #f5f5f7;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    min-height: 20vh;
 }
 
 /* STYLE FOR ABOUT PAGE */
@@ -256,8 +268,9 @@ footer {
     position: absolute;
     top: 10vh;
     height: auto;
-    margin-bottom : 2vh;
+    margin-bottom: 2vh;
 }
+
 .containerAbout {
     font-family: Arial, sans-serif;
     max-width: 800px;
@@ -269,13 +282,16 @@ footer {
     top: 24vh;
     text-align: justify;
 }
+
 #h1About {
     font-size: 7vh;
 }
+
 .pAbout {
     font-size: 18px;
     line-height: 1.6;
 }
+
 /* END OF STYLE OF ABOUT PAGE */
 
 /* -----------------------------------------------------------------*/
@@ -287,14 +303,15 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-     /* Adjust as needed */
-    margin: 0 auto; /* Center the container */
+    /* Adjust as needed */
+    margin: 0 auto;
+    /* Center the container */
     background-color: white;
     border-top: 5px solid white;
 }
 
 @media screen and (min-width: 600px) {
-    .container{
+    .container {
         min-height: 100vh;
     }
 }
@@ -302,27 +319,29 @@ footer {
 /* Style for individual sections */
 .section {
     height: auto;
-    width: calc(50% - 10px); /* Each section takes half of the container width with a small gap */
+    width: calc(50% - 10px);
+    /* Each section takes half of the container width with a small gap */
     margin-bottom: 20px;
     padding: 20px;
-    border:  0px solid #ccc;
+    border: 0px solid #ccc;
     box-sizing: border-box;
     background-color: #f9f9f9;
-    color:#000
+    color: #000
 }
 
 
-#section2{
+#section2 {
     background-color: #000;
     color: white;
 }
 
-.section:hover{
+.section:hover {
 
     font-size: large;
     z-index: 1;
 }
-#section3{
+
+#section3 {
     background-color: #000;
     color: white;
 }
@@ -330,19 +349,21 @@ footer {
 /* Media query to stack sections vertically on smaller screens */
 @media screen and (max-width: 600px) {
     .section {
-        width: 100%; /* Full width on smaller screens */
+        width: 100%;
+        /* Full width on smaller screens */
     }
 
     #section3 {
         background-color: white;
         color: black;
     }
+
     #section4 {
         background-color: black;
         color: white;
     }
 
-    #HomeFooter{
+    #HomeFooter {
         background-color: white;
     }
 }
