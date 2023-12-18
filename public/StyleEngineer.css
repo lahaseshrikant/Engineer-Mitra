@@ -47,7 +47,7 @@ header {
     border: 1px solid #2d2c2c;
     width: 100%;
     position: absolute;
-    top: 8vh;
+    top: 50px;
 }
 
 @media screen and (max-width: 600px) {
