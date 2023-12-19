@@ -23,25 +23,26 @@ function closeNavbarOnClickOutside(event) {
 }
 
 window.onload = function () {
-    var user = window.auth.currentUser;
     var loginLink = document.getElementById('login-link');
     var userMenu = document.getElementById('user-menu');
-
-    if (user) {
-        // User is logged in
-        loginLink.style.display = 'none';
-        userMenu.style.display = 'inline';
-    } else {
-        // User is logged out
-        loginLink.style.display = 'inline';
-        userMenu.style.display = 'none';
-    }
-
     var logoutButton = document.getElementById('logout-button');
+
+    window.auth.onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            loginLink.style.display = 'none';
+            userMenu.style.display = 'inline';
+        } else {
+            // No user is signed in.
+            loginLink.style.display = 'inline';
+            userMenu.style.display = 'none';
+        }
+    });
+
     if (logoutButton) {
         // Logout button functionality
         logoutButton.addEventListener('click', function () {
-            window.auth().signOut().then(function () {
+            window.auth.signOut().then(function () {
                 // Sign-out successful, redirect to login page
                 window.location.href = "login.html";
             }).catch(function (error) {
