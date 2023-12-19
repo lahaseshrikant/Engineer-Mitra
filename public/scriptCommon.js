@@ -22,8 +22,13 @@ function closeNavbarOnClickOutside(event) {
     }
 }
 
+// Import the functions you need from the SDKs you need
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+window.auth = getAuth();
+
 window.onload = function () {
-    var user = firebase.auth().currentUser;
+    var user = window.auth.currentUser;
     var loginLink = document.getElementById('login-link');
     var userMenu = document.getElementById('user-menu');
 
@@ -41,7 +46,7 @@ window.onload = function () {
     if (logoutButton) {
         // Logout button functionality
         logoutButton.addEventListener('click', function () {
-            firebase.auth().signOut().then(function () {
+            window.auth().signOut().then(function () {
                 // Sign-out successful, redirect to login page
                 window.location.href = "login.html";
             }).catch(function (error) {
