@@ -95,6 +95,10 @@
 
     window.auth = auth;
 
+    import('./scriptCommon.js');
+
+    const signupButton = document.getElementById('signupButton');
+    
     signupButton.addEventListener('click', (e) => {
 
       var username = document.getElementById('newUsername').value;
@@ -122,7 +126,6 @@
         });
     })
 
-    import('./scriptCommon.js');
   </script>
 
 </body>

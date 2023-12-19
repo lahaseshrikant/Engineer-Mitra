@@ -92,7 +92,8 @@
 
         // Make auth a global variable
         window.auth = auth;
-
+        // Load scriptCommon.js
+        import('./scriptCommon.js');
         window.onload = function () {
             var user = firebase.auth().currentUser;
             if (user) {
@@ -111,9 +112,8 @@
                 console.error('Sign out error', error);
             });
         });
+
         
-        // Load scriptCommon.js
-        import('./scriptCommon.js');
     </script>
 </body>
 

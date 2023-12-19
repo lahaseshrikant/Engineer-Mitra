@@ -95,6 +95,10 @@
     const auth = getAuth();
 
     window.auth = auth;
+    
+    import('./scriptCommon.js');
+
+    const loginButton = document.getElementById('loginButton');
 
     loginButton.addEventListener('click', (e) => {
 
@@ -122,7 +126,6 @@
         });
 
     })
-    import('./scriptCommon.js');
   </script>
 
 </body>
