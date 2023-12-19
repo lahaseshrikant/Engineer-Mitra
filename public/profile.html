@@ -1,75 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="Engineer Mitra is a platform for engineering students to share their study material and notes with other students.">
-        <meta name="keywords" content="Engineer Mitra, Engineer, Mitra, Engineering, Notes, Study Material, Material, Study, Notes, Engineering Notes, Engineering Study Material, Engineering Material, Engineering Notes for all branches, Engineering Study Material for all branches, Engineering Material for all branches, Engineering Notes for all semesters, Engineering Study Material for all semesters, Engineering Material for all semesters, Engineering Notes for all years, Engineering Study Material for all years, Engineering Material for all years, Engineering Notes for all subjects, Engineering Study Material for all subjects, Engineering Material for all subjects, Engineering Notes for all universities, Engineering Study Material for all universities, Engineering Material for all universities">
-        <meta name="author" content="Engineer Mitra">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Engineer</title>
-        <link rel="icon" type="image/x-icon" href="Images/Logo.png">
-        <link rel="stylesheet" href="StyleEngineer.css">
-        <script src="scriptCommon.js"></script>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4998839759449166"
-     crossorigin="anonymous"></script>
-        <script async src="https://fundingchoicesmessages.google.com/i/pub-4998839759449166?ers=1" nonce="UkoDTw4CWBy8ntkKzQlDoQ"></script><script nonce="UkoDTw4CWBy8ntkKzQlDoQ">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
-    </head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2NB2EBPJQ"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Engineer Mitra is a platform for engineering students to share their study material and notes with other students.">
+    <meta name="keywords"
+        content="Engineer Mitra, Engineer, Mitra, Engineering, Notes, Study Material, Material, Study, Notes, Engineering Notes, Engineering Study Material, Engineering Material, Engineering Notes for all branches, Engineering Study Material for all branches, Engineering Material for all branches, Engineering Notes for all semesters, Engineering Study Material for all semesters, Engineering Material for all semesters, Engineering Notes for all years, Engineering Study Material for all years, Engineering Material for all years, Engineering Notes for all subjects, Engineering Study Material for all subjects, Engineering Material for all subjects, Engineering Notes for all universities, Engineering Study Material for all universities, Engineering Material for all universities">
+    <meta name="author" content="Engineer Mitra">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Engineer</title>
+
+    <link rel="icon" type="image/x-icon" href="Images/Logo.png">
+    <link rel="stylesheet" href="StyleEngineer.css">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4998839759449166"
+        crossorigin="anonymous"></script>
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-4998839759449166?ers=1"
+        nonce="UkoDTw4CWBy8ntkKzQlDoQ"></script>
+    <script
+        nonce="UkoDTw4CWBy8ntkKzQlDoQ">(function () { function signalGooglefcPresent() { if (!window.frames['googlefcPresent']) { if (document.body) { const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe); } else { setTimeout(signalGooglefcPresent, 0); } } } signalGooglefcPresent(); })();</script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J2NB2EBPJQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-J2NB2EBPJQ');
+</script>
+
+<body>
+    <header>
+        <a href="index.html"><img class="logo" src="Images/Logo.png" alt="Engineer Mitra"></a>
+
+        <nav class="navbar" id="navbar">
+            <a href="index.html">Home</a>
+            <a href="Material.html">Material</a>
+            <a href="contribute.html">Upload</a>
+            <a href="about.html">About</a>
+            <a href="login.html" id="login-link">Log In</a>
+            <div id="user-menu" style="display: none;">
+                <a href="profile.html" id="profile-link">Profile</a>
+                <button id="logout-button">Logout</button>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction1()">&#9776;</a>
+        </nav>
+        <hr id="horizontalLineAfterHeader">
+    </header>
+
+    <!-- User Profile Section -->
+    <section id="user-profile">
+        <h2>User Profile</h2>
+        <p id="user-email">Email: Loading...</p>
+        <p id="user-uid">UID: Loading...</p>
+    </section>
+
+    <!-- Logout Button -->
+    <button id="profile-logout-button">Logout</button>
+
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        // Load user information when the page loads
+        window.onload = function () {
+            var user = firebase.auth().currentUser;
+            if (user) {
+                document.getElementById('user-email').textContent = 'Email: ' + user.email;
+                document.getElementById('user-uid').textContent = 'UID: ' + user.uid;
+            }
+        };
 
-      gtag('config', 'G-J2NB2EBPJQ');
-    </script>
-    <body>
-        <header>
-            <a href="index.html"><img class="logo" src="Images/Logo.png" alt="Engineer Mitra"></a>
-            
-            <nav class="navbar" id="navbar">
-                <a href="index.html">Home</a>
-                <a href="Material.html">Material</a>
-                <a href="contribute.html">Upload</a>
-                <a href="about.html">About</a>
-                <a href="login.html">Log In</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction1()">&#9776;</a>
-            </nav>
-            <hr id="horizontalLineAfterHeader">
-        </header>
-        
-         <!-- User Profile Section -->
-        <section id="user-profile">
-            <h2>User Profile</h2>
-            <p id="user-email">Email: Loading...</p>
-            <p id="user-uid">UID: Loading...</p>
-        </section>
-
-        <!-- Logout Button -->
-        <button id="profile-logout-button">Logout</button>
-
-        <script>
-            // Load user information when the page loads
-            window.onload = function() {
-                var user = firebase.auth().currentUser;
-                if (user) {
-                    document.getElementById('user-email').textContent = 'Email: ' + user.email;
-                    document.getElementById('user-uid').textContent = 'UID: ' + user.uid;
-                }
-            };
-
-            // Logout button functionality
-            document.getElementById('profile-logout-button').addEventListener('click', function() {
-                firebase.auth().signOut().then(function() {
-                    // Sign-out successful, redirect to login page
-                    window.location.href = "login.html";
-                }).catch(function(error) {
-                    // An error happened during sign out
-                    console.error('Sign out error', error);
-                });
+        // Logout button functionality
+        document.getElementById('profile-logout-button').addEventListener('click', function () {
+            firebase.auth().signOut().then(function () {
+                // Sign-out successful, redirect to login page
+                window.location.href = "login.html";
+            }).catch(function (error) {
+                // An error happened during sign out
+                console.error('Sign out error', error);
             });
-        </script>
-    </body>
+        });
+    </script>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <!-- Firebase configuration -->
+    <script src="firebaseConfig.js"></script>
+
+    <script src="scriptCommon.js"></script>
+</body>
 
 </html>

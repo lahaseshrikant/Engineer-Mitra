@@ -53,4 +53,3 @@ window.onload = function () {
         console.error('Logout button not found');
     }
 };
-
