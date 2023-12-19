@@ -22,11 +22,6 @@ function closeNavbarOnClickOutside(event) {
     }
 }
 
-// Import the functions you need from the SDKs you need
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-window.auth = getAuth();
-
 window.onload = function () {
     var user = window.auth.currentUser;
     var loginLink = document.getElementById('login-link');
