@@ -12,7 +12,6 @@
 
     <link rel="icon" type="image/x-icon" href="Images/Logo.png">
     <link rel="stylesheet" href="StyleEngineer.css">
-    <script src="scriptCommon.js"></script>
 
     <!-- Google Ads -->
 
@@ -50,7 +49,11 @@
                 <a href="Material.html">Material</a>
                 <a href="contribute.html">Upload</a>
                 <a href="about.html">About</a>
-                <a href="login.html">Log In</a>
+                <a href="login.html" id="login-link">Log In</a>
+                <div id="user-menu" style="display: none;">
+                    <a href="profile.html" id="profile-link">Profile</a>
+                    <button id="logout-button">Logout</button>
+                </div>
                 <a href="javascript:void(0);" class="icon" id="navbarButton" onclick="myFunction1()">&#9776;</a>
             </nav>
             <hr id="horizontalLineAfterHeader">
@@ -90,6 +93,22 @@
     <footer id="HomeFooter">
         <p>&copy; 2023 Engineer Mitra. All rights reserved.</p>
     </footer>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <!-- Firebase configuration -->
+    <script src="firebaseConfig.js"></script>
+
+    <script src="scriptCommon.js"></script>
+
 </body>
 
 </html>

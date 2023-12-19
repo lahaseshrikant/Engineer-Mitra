@@ -371,3 +371,29 @@ footer {
 #FirstView {
     height: 100vh;
 }
+
+
+/* STYLE FOR PROFILE PAGE */
+
+#user-profile {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    color: #000;
+}
+
+#profile-logout-button {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    float: right;
+    font-size: 16px;
+    margin: 20px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}

@@ -22,3 +22,35 @@ function closeNavbarOnClickOutside(event) {
     }
 }
 
+window.onload = function () {
+    var user = firebase.auth().currentUser;
+    var loginLink = document.getElementById('login-link');
+    var userMenu = document.getElementById('user-menu');
+
+    if (user) {
+        // User is logged in
+        loginLink.style.display = 'none';
+        userMenu.style.display = 'inline';
+    } else {
+        // User is logged out
+        loginLink.style.display = 'inline';
+        userMenu.style.display = 'none';
+    }
+
+    var logoutButton = document.getElementById('logout-button');
+    if (logoutButton) {
+        // Logout button functionality
+        logoutButton.addEventListener('click', function () {
+            firebase.auth().signOut().then(function () {
+                // Sign-out successful, redirect to login page
+                window.location.href = "login.html";
+            }).catch(function (error) {
+                // An error happened during sign out
+                console.error('Sign out error', error);
+            });
+        });
+    } else {
+        console.error('Logout button not found');
+    }
+};
+

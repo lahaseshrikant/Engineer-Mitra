@@ -39,6 +39,37 @@
             <hr id="horizontalLineAfterHeader">
         </header>
         
+         <!-- User Profile Section -->
+        <section id="user-profile">
+            <h2>User Profile</h2>
+            <p id="user-email">Email: Loading...</p>
+            <p id="user-uid">UID: Loading...</p>
+        </section>
+
+        <!-- Logout Button -->
+        <button id="profile-logout-button">Logout</button>
+
+        <script>
+            // Load user information when the page loads
+            window.onload = function() {
+                var user = firebase.auth().currentUser;
+                if (user) {
+                    document.getElementById('user-email').textContent = 'Email: ' + user.email;
+                    document.getElementById('user-uid').textContent = 'UID: ' + user.uid;
+                }
+            };
+
+            // Logout button functionality
+            document.getElementById('profile-logout-button').addEventListener('click', function() {
+                firebase.auth().signOut().then(function() {
+                    // Sign-out successful, redirect to login page
+                    window.location.href = "login.html";
+                }).catch(function(error) {
+                    // An error happened during sign out
+                    console.error('Sign out error', error);
+                });
+            });
+        </script>
     </body>
 
 </html>
