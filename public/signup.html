@@ -98,7 +98,7 @@
     import('./scriptCommon.js');
 
     const signupButton = document.getElementById('signupButton');
-    
+
     signupButton.addEventListener('click', (e) => {
 
       var username = document.getElementById('newUsername').value;
@@ -111,11 +111,12 @@
           const user = userCredential.user;
           // ...
 
-          set(ref(database, 'users/' + user.uid), {
+          return set(ref(database, 'users/' + user.uid), {
             username: username,
             email: email
           })
-
+        })
+        .then(()=>{
           window.location.href = "profile.html";
         })
         .catch((error) => {

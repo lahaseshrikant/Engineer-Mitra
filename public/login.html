@@ -95,7 +95,7 @@
     const auth = getAuth();
 
     window.auth = auth;
-    
+
     import('./scriptCommon.js');
 
     const loginButton = document.getElementById('loginButton');
@@ -112,11 +112,12 @@
           // ...
           const dt = new Date();
 
-          update(ref(database, 'users/' + user.uid), {
+          return update(ref(database, 'users/' + user.uid), {
             last_login: dt,
           })
-
-          window.location.href = "/profile.html";
+        })
+        .then(()=>{
+          window.location.href = "profile.html";
         })
         .catch((error) => {
           const errorCode = error.code;
