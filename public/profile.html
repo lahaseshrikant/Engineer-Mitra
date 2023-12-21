@@ -61,10 +61,7 @@
     <!-- Logout Button -->
     <button id="profile-logout-button">Logout</button>
 
-    <script>
-        // Load user information when the page loads
-        
-    </script>
+    <script type="module" src="scriptCommon.js"></script>
 
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -93,7 +90,7 @@
         // Make auth a global variable
         window.auth = auth;
         // Load scriptCommon.js
-        import('./scriptCommon.js');
+
         window.onload = function () {
             var user = firebase.auth().currentUser;
             if (user) {
