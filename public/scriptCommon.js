@@ -1,4 +1,4 @@
-function menubarFunction() {
+window.menubarFunction = function() {
     console.log("Function called");
     var navbar = document.getElementById("navbar");
     var isNavbarResponsive = navbar.classList.contains("responsive");
@@ -10,7 +10,7 @@ function menubarFunction() {
         navbar.classList.remove("responsive");
         document.removeEventListener("click", closeNavbarOnClickOutside);
     }
-}
+};
 
 function closeNavbarOnClickOutside(event) {
     var navbar = document.getElementById("navbar");
@@ -41,7 +41,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-logEvent(analytics, 'notification_received');
+analytics.logEvent(analytics, 'notification_received');
 const auth = getAuth();
 
 window.onload = function () {
