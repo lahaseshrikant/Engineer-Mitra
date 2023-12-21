@@ -1,4 +1,4 @@
-function myFunction1() {
+function menubarFunction() {
     console.log("Function called");
     var navbar = document.getElementById("navbar");
     var isNavbarResponsive = navbar.classList.contains("responsive");
@@ -22,12 +22,34 @@ function closeNavbarOnClickOutside(event) {
     }
 }
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAvsKMRtnF0CY0RvNbG6_XoleZhJOs6Ub0",
+  authDomain: "engineer-mitra.firebaseapp.com",
+  databaseURL: "https://engineer-mitra-default-rtdb.firebaseio.com",
+  projectId: "engineer-mitra",
+  storageBucket: "engineer-mitra.appspot.com",
+  messagingSenderId: "999063294330",
+  appId: "1:999063294330:web:d7b8b673986f858e53c6c3",
+  measurementId: "G-J2NB2EBPJQ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+logEvent(analytics, 'notification_received');
+const auth = getAuth();
+
 window.onload = function () {
     var loginLink = document.getElementById('login-link');
     var userMenu = document.getElementById('user-menu');
     var logoutButton = document.getElementById('logout-button');
 
-    window.auth.onAuthStateChanged(function(user) {
+    onAuthStateChanged(auth, (user) => {
         if (user) {
             // User is signed in.
             loginLink.style.display = 'none';

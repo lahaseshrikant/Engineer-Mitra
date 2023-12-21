@@ -46,7 +46,7 @@
                 <a href="profile.html" id="profile-link">Profile</a>
                 <button id="logout-button">Logout</button>
             </div>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction1()">&#9776;</a>
+            <a href="javascript:void(0);" class="icon" onclick="menubarFunction()">&#9776;</a>
         </nav>
         <hr id="horizontalLineAfterHeader">
     </header>
@@ -71,7 +71,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
         import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
         const firebaseConfig = {
             // your config here
