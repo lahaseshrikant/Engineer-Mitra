@@ -47,7 +47,7 @@ const auth = getAuth();
 window.onload = function () {
     var loginLink = document.getElementById('login-link');
     var userMenu = document.getElementById('user-menu');
-    var logoutButton = document.getElementById('logout-button');
+    var logoutLink = document.getElementById('logout-link');
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -61,10 +61,10 @@ window.onload = function () {
         }
     });
 
-    if (logoutButton) {
+    if (logoutLink) {
         // Logout button functionality
-        logoutButton.addEventListener('click', function () {
-            window.auth.signOut().then(function () {
+        logoutLink.addEventListener('click', function () {
+            auth.signOut().then(function () {
                 // Sign-out successful, redirect to login page
                 window.location.href = "login.html";
             }).catch(function (error) {
@@ -73,6 +73,6 @@ window.onload = function () {
             });
         });
     } else {
-        console.error('Logout button not found');
+        console.error('Logout link not found');
     }
 };

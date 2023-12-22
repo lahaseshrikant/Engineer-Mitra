@@ -44,7 +44,7 @@
             <a href="login.html" id="login-link">Log In</a>
             <div id="user-menu" style="display: none;">
                 <a href="profile.html" id="profile-link">Profile</a>
-                <button id="logout-button">Logout</button>
+                <a id="logout-link">Logout</a>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="menubarFunction()">&#9776;</a>
         </nav>
@@ -59,7 +59,7 @@
     </section>
 
     <!-- Logout Button -->
-    <button id="profile-logout-button">Logout</button>
+    <button id="profile-logout-link">Logout</button>
 
     <script type="module" src="scriptCommon.js"></script>
 
@@ -100,7 +100,7 @@
         };
 
         // Logout button functionality
-        document.getElementById('profile-logout-button').addEventListener('click', function () {
+        document.getElementById('profile-logout-link').addEventListener('click', function () {
             window.auth().signOut().then(function () {
                 // Sign-out successful, redirect to login page
                 window.location.href = "login.html";

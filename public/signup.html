@@ -30,7 +30,7 @@
       <a href="login.html" id="login-link">Log In</a>
       <div id="user-menu" style="display: none;">
         <a href="profile.html" id="profile-link">Profile</a>
-        <button id="logout-button">Logout</button>
+        <a id="logout-link">Logout</a>
       </div>
       <a href="javascript:void(0);" class="icon" onclick="menubarFunction()">&#9776;</a>
     </nav>
@@ -79,10 +79,11 @@
     const analytics = getAnalytics(app);
     const database = getDatabase(app);
     const auth = getAuth();
-    
+
     const signupButton = document.getElementById('signupButton');
 
     signupButton.addEventListener('click', (e) => {
+      e.preventDefault();
 
       var username = document.getElementById('newUsername').value;
       var email = document.getElementById('newEmail').value;

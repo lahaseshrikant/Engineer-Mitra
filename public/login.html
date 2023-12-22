@@ -26,7 +26,7 @@
       <a href="login.html" id="login-link">Log In</a>
       <div id="user-menu" style="display: none;">
         <a href="profile.html" id="profile-link">Profile</a>
-        <button id="logout-button">Logout</button>
+        <a id="logout-link">Logout</a>
       </div>
       <a href="javascript:void(0);" class="icon" onclick="menubarFunction()">&#9776;</a>
     </nav>
@@ -81,6 +81,7 @@
     const loginButton = document.getElementById('loginButton');
 
     loginButton.addEventListener('click', (e) => {
+      e.preventDefault();
 
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;

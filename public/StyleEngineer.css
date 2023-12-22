@@ -91,10 +91,6 @@ header {
         color: white;
         background: none;
     }
-
-    #horizontalLineAfterHeader {
-        visibility: hidden;
-    }
 }
 
 .ChooseBranch {
