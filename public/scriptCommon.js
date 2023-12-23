@@ -48,7 +48,6 @@ logEvent(analytics, 'notification_received');
 const auth = getAuth();
 window.auth = auth;
 
-
 window.onload = function () {
     var loginLink = document.getElementById('login-link');
     var logoutLink = document.getElementById('logout-link');

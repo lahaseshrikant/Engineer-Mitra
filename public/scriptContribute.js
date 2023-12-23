@@ -1,20 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+const app = window.app;
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAvsKMRtnF0CY0RvNbG6_XoleZhJOs6Ub0",
-    authDomain: "engineer-mitra.firebaseapp.com",
-    databaseURL: "https://engineer-mitra-default-rtdb.firebaseio.com",
-    projectId: "engineer-mitra",
-    storageBucket: "engineer-mitra.appspot.com",
-    messagingSenderId: "999063294330",
-    appId: "1:999063294330:web:d7b8b673986f858e53c6c3",
-    measurementId: "G-J2NB2EBPJQ"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
 // Get a reference to the Firestore service
 const db = getFirestore(app);
@@ -24,7 +10,6 @@ const storage = getStorage(app);
 
 async function submitContribution() {
     const form = document.getElementById('contributeForm');
-    const file = form.fileUpload.files[0];
 
     // Get user inputs
     let branch = form.branch.value;
@@ -45,54 +30,110 @@ async function submitContribution() {
     if (!college || college === 'Select College') {
         college = '.NoCollege';
     }
-    // Create a dynamic path based on user inputs
-    const filePath = `contributions/${college}/${branch}/${subject}/${materialType}/${file.name}`;
 
-    // Create a storage reference
-    const storageRef = ref(storage, filePath);
+    if (form.uploadType.value === 'article') {
+        const articleContent = form.articleContent.value;
 
-    // Upload file to Firebase Storage
-    const uploadTask = uploadBytesResumable(storageRef, file);
-
-    // Listen for state changes, errors, and completion of the upload.
-    uploadTask.on('state_changed',
-        (snapshot) => {
-            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log('Upload is ' + progress + '% done');
-        },
-        (error) => {
-            // Handle unsuccessful uploads
-            console.error('Upload failed:', error);
-        },
-        () => {
-            // Handle successful uploads on complete
-            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                console.log('File available at', downloadURL);
-
-                // Create contribution data
-                const contributionData = {
-                    branch: form.branch.value,
-                    subject: form.subject.value,
-                    materialType: form.materialType.value,
-                    college: form.college.value,
-                    year: form.year.value,
-                    submissionDate: form.submissionDate.value,
-                    article: form.articleContent.value,
-                    file: downloadURL,
-                };
-
-                // Store data in Firestore
-                addDoc(collection(db, "contributions"), contributionData)
-                    .then((docRef) => {
-                        console.log("Document written with ID: ", docRef.id);
-                    })
-                    .catch((error) => {
-                        console.error("Error adding document: ", error);
-                    });
-            });
+        // Check if article content is provided
+        if (!articleContent.trim()) {
+            console.error('Article content is empty');
+            return;
         }
-    );
+
+        // Create contribution data for article
+        const contributionData = {
+            branch,
+            subject,
+            materialType,
+            college,
+            year: form.year.value,
+            submissionDate: form.submissionDate.value,
+            article: articleContent,
+        };
+        // Generate a unique filename based on the current time
+        const time = new Date().getTime();
+        const articleFileName = `article_${time}.txt`;
+
+        // Create a Blob containing the article content
+        const articleBlob = new Blob([articleContent], { type: 'text/plain' });
+
+        // Create a storage reference for the article
+        const articleStorageRef = ref(storage, `articles/${articleFileName}`);
+
+        // Upload the article file to Firebase Storage
+        const articleUploadTask = uploadBytesResumable(articleStorageRef, articleBlob);
+
+        // Wait for the article file to be uploaded
+        await articleUploadTask;
+
+        // Get the download URL of the uploaded article file
+        const articleDownloadURL = await getDownloadURL(articleStorageRef);
+
+        console.log('Article file available at', articleDownloadURL);
+
+        // Update the contribution data to include the article file URL
+        contributionData.file = articleDownloadURL;
+    } else {
+        // If the user selected 'file', get the file from the file input
+        const file = form.fileUpload.files[0];
+
+        // Check if a file is selected
+        if (!file) {
+            console.error('No file selected');
+            return;
+        }
+
+        // Create a dynamic path based on user inputs
+        const filePath = `contributions/${college}/${branch}/${subject}/${materialType}/${file.name}`;
+
+        // Create a storage reference
+        const storageRef = ref(storage, filePath);
+
+        // Upload file to Firebase Storage
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+            },
+            (error) => {
+                // Handle unsuccessful uploads
+                console.error('Upload failed:', error);
+            },
+            () => {
+                // Handle successful uploads on complete
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    console.log('File available at', downloadURL);
+
+                    // Create contribution data
+                    const contributionData = {
+                        branch: form.branch.value,
+                        subject: form.subject.value,
+                        materialType: form.materialType.value,
+                        college: form.college.value,
+                        year: form.year.value,
+                        submissionDate: form.submissionDate.value,
+                        article: form.articleContent.value,
+                        file: downloadURL,
+                    };
+
+                    // Store data in Firestore
+                    addDoc(collection(db, "contributions"), contributionData)
+                        .then((docRef) => {
+                            console.log("Document written with ID: ", docRef.id);
+                        })
+                        .catch((error) => {
+                            console.error("Error adding document: ", error);
+                        });
+                });
+            }
+        );
+    }
+
+
 }
 
 window.onload = function () {
