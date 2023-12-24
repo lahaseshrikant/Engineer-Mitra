@@ -69,6 +69,10 @@
             if (user) {
                 document.getElementById('user-email').textContent = 'Email: ' + user.email;
                 document.getElementById('user-uid').textContent = 'UID: ' + user.uid;
+            } else {
+                // No user is signed in.
+                document.getElementById('user-email').textContent = 'Email: ' + 'No user is signed in.';
+                document.getElementById('user-uid').textContent = 'UID: ' + 'No user is signed in.';
             }
         };
 

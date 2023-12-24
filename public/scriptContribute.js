@@ -37,6 +37,7 @@ async function submitContribution() {
         // Check if article content is provided
         if (!articleContent.trim()) {
             console.error('Article content is empty');
+            alert('Article content is empty');
             return;
         }
 
