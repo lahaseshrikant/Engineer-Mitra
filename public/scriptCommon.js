@@ -48,7 +48,6 @@ logEvent(analytics, 'notification_received');
 const auth = getAuth();
 window.auth = auth;
 
-
 var loginLink = document.getElementById('login-link');
 var logoutLink = document.getElementById('logout-link');
 var profileLink = document.getElementById('profile-link');
@@ -58,9 +57,18 @@ onAuthStateChanged(auth, (user) => {
         // User is signed in.
         logoutLink.classList.remove('hidden');
         profileLink.classList.remove('hidden');
+        
+        if (window.innerWidth <= 600) {
+            loginLink.style.display = 'none';
+        }
     } else {
         // No user is signed in.
         loginLink.classList.remove('hidden');
+
+        if (window.innerWidth <= 600) {
+            profileLink.style.display = 'none';
+            logoutLink.style.display = 'none';
+        } 
     }
 });
 

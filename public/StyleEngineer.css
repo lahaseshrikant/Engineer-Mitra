@@ -43,6 +43,10 @@ header {
     display: none;
 }
 
+.hidden{
+    display: none;
+}
+
 #horizontalLineAfterHeader {
     border: 1px solid #2d2c2c;
     width: 99.83%;
@@ -108,9 +112,7 @@ header {
     padding-bottom: 1vw;
 }
 
-.hidden{
-    display: none;
-}
+
 @media screen and (min-width: 1920px) {
     #namskar {
         padding-bottom: 20px;
