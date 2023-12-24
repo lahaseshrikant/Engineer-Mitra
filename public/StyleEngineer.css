@@ -108,6 +108,9 @@ header {
     padding-bottom: 1vw;
 }
 
+.hidden{
+    display: none;
+}
 @media screen and (min-width: 1920px) {
     #namskar {
         padding-bottom: 20px;

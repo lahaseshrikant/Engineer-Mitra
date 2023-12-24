@@ -48,34 +48,33 @@ logEvent(analytics, 'notification_received');
 const auth = getAuth();
 window.auth = auth;
 
-window.onload = function () {
-    var loginLink = document.getElementById('login-link');
-    var logoutLink = document.getElementById('logout-link');
-    var profileLink = document.getElementById('profile-link');
 
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            // User is signed in.
-            loginLink.style.display = 'none';
-        } else {
-            // No user is signed in.
-            logoutLink.style.display = 'none';
-            profileLink.style.display = 'none';
-        }
-    });
+var loginLink = document.getElementById('login-link');
+var logoutLink = document.getElementById('logout-link');
+var profileLink = document.getElementById('profile-link');
 
-    if (logoutLink) {
-        // Logout button functionality
-        logoutLink.addEventListener('click', function () {
-            auth.signOut().then(function () {
-                // Sign-out successful, redirect to login page
-                window.location.href = "login.html";
-            }).catch(function (error) {
-                // An error happened during sign out
-                console.error('Sign out error', error);
-            });
-        });
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in.
+        logoutLink.classList.remove('hidden');
+        profileLink.classList.remove('hidden');
     } else {
-        console.error('Logout link not found');
+        // No user is signed in.
+        loginLink.classList.remove('hidden');
     }
-};
+});
+
+if (logoutLink) {
+    // Logout button functionality
+    logoutLink.addEventListener('click', function () {
+        auth.signOut().then(function () {
+            // Sign-out successful, redirect to login page
+            window.location.href = "login.html";
+        }).catch(function (error) {
+            // An error happened during sign out
+            console.error('Sign out error', error);
+        });
+    });
+} else {
+    console.error('Logout link not found');
+}
