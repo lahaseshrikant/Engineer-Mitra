@@ -41,16 +41,6 @@ async function submitContribution() {
             return;
         }
 
-        // Create contribution data for article
-        const contributionData = {
-            branch,
-            subject,
-            materialType,
-            college,
-            year: form.year.value,
-            submissionDate: form.submissionDate.value,
-            article: articleContent,
-        };
         // Generate a unique filename based on the current time
         const time = new Date().getTime();
         const articleFileName = `article_${time}.txt`;
@@ -59,7 +49,7 @@ async function submitContribution() {
         const articleBlob = new Blob([articleContent], { type: 'text/plain' });
 
         // Create a storage reference for the article
-        const articleStorageRef = ref(storage, `articles/${articleFileName}`);
+        const articleStorageRef = ref(storage, `contributions/${college}/${branch}/${subject}/${materialType}/${articleFileName}`);
 
         // Upload the article file to Firebase Storage
         const articleUploadTask = uploadBytesResumable(articleStorageRef, articleBlob);
@@ -72,8 +62,27 @@ async function submitContribution() {
 
         console.log('Article file available at', articleDownloadURL);
 
-        // Update the contribution data to include the article file URL
-        contributionData.file = articleDownloadURL;
+        const contributionData = {
+            branch: form.branch.value,
+            subject: form.subject.value,
+            materialType: form.materialType.value,
+            college: form.college.value,
+            year: form.year.value,
+            submissionDate: form.submissionDate.value,
+            article: form.articleContent.value,
+            file: articleDownloadURL,
+            time: time
+        };
+
+        // Store data in Firestore
+        addDoc(collection(db, "contributions"), contributionData)
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
+
     } else {
         // If the user selected 'file', get the file from the file input
         const file = form.fileUpload.files[0];
@@ -119,6 +128,7 @@ async function submitContribution() {
                         submissionDate: form.submissionDate.value,
                         article: form.articleContent.value,
                         file: downloadURL,
+                        time: new Date().getTime()
                     };
 
                     // Store data in Firestore
