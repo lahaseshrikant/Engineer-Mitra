@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Engineer Mitra is a platform for engineering students to share their study material and notes with other students.">
+  <meta name="keywords" content="Engineer Mitra, Engineer, Mitra, Engineering, Notes, Study Material, Material, Study, Notes, Engineering Notes, Engineering Study Material, Engineering Material, Engineering Notes for all branches, Engineering Study Material for all branches, Engineering Material for all branches, Engineering Notes for all semesters, Engineering Study Material for all semesters, Engineering Material for all semesters, Engineering Notes for all years, Engineering Study Material for all years, Engineering Material for all years, Engineering Notes for all subjects, Engineering Study Material for all subjects, Engineering Material for all subjects, Engineering Notes for all universities, Engineering Study Material for all universities, Engineering Material for all universities, Engineer Mitra IIT Bhubaneswar, Civil engineering material">
+  <meta name="author" content="Engineer Mitra">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Engineer - Login</title>
+  <link rel="icon" href="Images/Logo.png" type="image/png" sizes="16x16">
+
+  <link rel="stylesheet" href="StyleEngineer2.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <a href="index.html"><img class="logo" src="Images/Logo.png" alt="Engineer Mitra"></a>
+
+    <nav class="navbar" id="navbar">
+      <a href="index.html">Home</a>
+      <a href="material.html">Material</a>
+      <a href="contribute.html">Upload</a>
+      <a href="about.html">About</a>
+      <a href="login.html"  class="hidden" id="login-link">Log In</a>
+      <a href="profile.html" class="hidden" id="profile-link">Profile</a>
+      <a id="logout-link" class="hidden">Logout</a>
+      <div class="menuIcon" id="menuButton" onclick="menubarFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+    </nav>
+
+    <hr id="horizontalLineAfterHeader">
+  </header>
+  <main>
+    <section class="login-section">
+      <h2 class="section-heading">User Login</h2>
+      <form class="login-form">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required autocomplete="email"> <!-- Add autocomplete attribute -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password">
+        <!-- Add autocomplete attribute -->
+        <button id="loginButton" type="submit" value="login">Login</button>
+        <a href="signup.html" id="createNewAccount">Create New Account</a>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Engineer Mitra. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="scriptCommon2.js"></script>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+    import { signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    const app =window.app;
+    const auth = window.auth;
+    const database = getDatabase(app);
+
+    const loginButton = document.getElementById('loginButton');
+
+    loginButton.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          // ...
+          const dt = new Date();
+
+          return update(ref(database, 'users/' + user.uid), {
+            last_login: dt,
+          })
+        })
+        .then(()=>{
+          window.location.href = "profile.html";
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+
+          alert(errorMessage);
+        });
+
+    })
+  </script>
+
+</body>
+
+</html>
