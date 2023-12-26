@@ -9,27 +9,35 @@
 
     "rewrites": [
       {
-        "source": "/Home",
+        "source": "/home",
         "destination": "/index.html"
       },
       {
-        "source": "/Material",
+        "source": "/material",
         "destination": "/Material.html"
       },
       {
-        "source": "/Contribute",
+        "source": "/contribute",
         "destination": "/contribute.html"
       },
       {
-        "source": "/About",
+        "source": "/about",
         "destination": "/about.html"
       },
       {
-        "source": "/Log-In",
+        "source": "/login",
         "destination": "/login.html"
       },
       {
-        "source": "/Material/Civil",
+        "source": "/signup",
+        "destination": "/signup.html"
+      },
+      {
+        "source": "/profile",
+        "destination": "/profile.html"
+      },
+      {
+        "source": "/material/civil",
         "destination": "/Material/civil.html"
       }
     ],
@@ -37,32 +45,42 @@
     "redirects": [
       {
         "source": "*index.html",
-        "destination": "/Home",
+        "destination": "/home",
         "type": 301
       },
       {
         "source": "*Material.html",
-        "destination": "/Material",
+        "destination": "/material",
         "type": 301
       },
       {
         "source": "*contribute.html",
-        "destination": "/Contribute",
+        "destination": "/contribute",
         "type": 301
       },
       {
         "source": "*about.html",
-        "destination": "/About",
+        "destination": "/about",
         "type": 301
       },
       {
         "source": "*login.html",
-        "destination": "/Log-In",
+        "destination": "/login",
+        "type": 301
+      },
+      {
+        "source": "*signup.html",
+        "destination": "/signUp",
+        "type": 301
+      },
+      {
+        "source": "*profile.html",
+        "destination": "/profile",
         "type": 301
       },
       {
         "source": "*Material/civil.html",
-        "destination": "/Material/Civil",
+        "destination": "/material/civil",
         "type": 301
       }
     ],
