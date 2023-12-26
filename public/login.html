@@ -92,6 +92,14 @@
           const user = result.user;
           // IdP data available using getAdditionalUserInfo(result)
           // ...
+          const dt = new Date();
+
+          return update(ref(database, 'users/' + user.uid), {
+            last_login: dt,
+          })
+        })
+        .then(()=>{
+          window.location.href = "profile.html";
         }).catch((error) => {
           // Handle Errors here.
           const errorCode = error.code;
