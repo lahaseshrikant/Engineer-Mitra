@@ -16,9 +16,9 @@ window.menubarFunction = function () {
 
 function closeNavbarOnClickOutside(event) {
     var navbar = document.getElementById("navbar");
-    var icon = document.getElementById("navbarButton");
+    var menuIcon = document.getElementById("navbarButton");
 
-    if (!navbar.contains(event.target) && event.target !== icon) {
+    if (!navbar.contains(event.target) && event.target !== menuIcon) {
         navbar.className = "navbar";
         document.removeEventListener("click", closeNavbarOnClickOutside);
     }

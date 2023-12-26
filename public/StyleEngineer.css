@@ -39,7 +39,7 @@ header {
 }
 
 /* Responsive navigation menu */
-.navbar .icon {
+.navbar .menuIcon {
     display: none;
 }
 
@@ -60,10 +60,10 @@ header {
         align-items: flex-end;
     }
 
-    .navbar .icon {
+    .navbar .menuIcon {
         display: block;
         order: -1;
-        /* Place the icon at the top on small screens */
+        /* Place the menuIcon at the top on small screens */
     }
 
     .navbar a:not(:last-child) {
