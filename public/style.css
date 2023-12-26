@@ -63,14 +63,17 @@
 
 .login-form .social {
     display: flex;
+    align-items: center;
     justify-content: center;
 }
+
 .login-form .social-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
-    white-space: nowrap;
+    width: 200px; /* Adjust as needed */
+    height: 50px;
     /* Google Blue */
     color: black;
     border: none;
@@ -83,27 +86,20 @@
 }
 
 .login-form .social-btn:hover {
-    
-    #google::after{
-        content: "";
-        z-index: 101;
-        position: absolute;
-        border-top: 10px solid transparent;
-        border-right: 13px solid rgb(212, 212,212);
-        top: -5px;
-        right: -5px;
-        width: 0;
-        height: 0;
-        transition: border-right 0.3s;
-    }
     background-color: rgb(212, 212, 212);
-    /* Darker shade on hover */
 }
+
+.login-form .social-btn:hover #google::after {
+    border-right: 13px solid rgb(212, 212, 212);
+    transition: border-right 0.3s;
+}
+
 
 /* Additional styles can be added based on your design */
 
 
-#google {
+
+.login-form .social #google {
     position: relative;
     border-top: 5px solid #EA4335;
     border-right: 5px solid #4285F4;
@@ -117,7 +113,7 @@
     float: left;
 }
 
-#google::before {
+.login-form .social #google::before {
     content: "";
     z-index: 100;
     position: absolute;
@@ -129,7 +125,7 @@
     background: #4285F4;
 }
 
-#google::after {
+.login-form .social #google::after {
     content: "";
     z-index: 101;
     position: absolute;
