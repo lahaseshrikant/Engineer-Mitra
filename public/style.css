@@ -1,5 +1,6 @@
 /* Styling for the signup and login forms */
-.signup-form, .login-form {
+.signup-form,
+.login-form {
     max-width: 300px;
     margin: 0 auto;
     padding: 20px;
@@ -10,7 +11,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.signup-form label, .login-form label {
+.signup-form label,
+.login-form label {
     display: block;
     margin-bottom: 5px;
 }
@@ -27,7 +29,8 @@
     box-sizing: border-box;
 }
 
-.signup-form button, .login-form button {
+.signup-form button,
+.login-form button {
     display: inline-block;
     background-color: #4CAF50;
     color: white;
@@ -39,14 +42,101 @@
     transition: background-color 0.3s;
 }
 
-.signup-form button:hover, .login-form button:hover {
+.signup-form button:hover,
+.login-form button:hover {
     background-color: #45a049;
 }
 
-#createNewAccount, #alreadyHaveAccount {
-    text-decoration:none;
+#createNewAccount,
+#alreadyHaveAccount {
+    text-decoration: none;
     float: right;
     margin-top: 10px;
 }
 
+/* Add this to your existing style.css or create a new CSS file */
+
+
+.login-form .or {
+    text-align: center;
+}
+
+.login-form .social {
+    display: flex;
+    justify-content: center;
+}
+.login-form .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    white-space: nowrap;
+    /* Google Blue */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-form .social-btn:hover {
+    
+    #google::after{
+        content: "";
+        z-index: 101;
+        position: absolute;
+        border-top: 10px solid transparent;
+        border-right: 13px solid rgb(212, 212,212);
+        top: -5px;
+        right: -5px;
+        width: 0;
+        height: 0;
+        transition: border-right 0.3s;
+    }
+    background-color: rgb(212, 212, 212);
+    /* Darker shade on hover */
+}
+
 /* Additional styles can be added based on your design */
+
+
+#google {
+    position: relative;
+    border-top: 5px solid #EA4335;
+    border-right: 5px solid #4285F4;
+    border-bottom: 5px solid #34A853;
+    border-left: 5px solid #FBBC05;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    margin: 0 5px 0 0;
+    float: left;
+}
+
+#google::before {
+    content: "";
+    z-index: 100;
+    position: absolute;
+    top: 49%;
+    right: -4.5px;
+    transform: translateY(-50%);
+    width: 12.25px;
+    height: 5px;
+    background: #4285F4;
+}
+
+#google::after {
+    content: "";
+    z-index: 101;
+    position: absolute;
+    border-top: 10px solid transparent;
+    border-right: 13px solid white;
+    top: -5px;
+    right: -5px;
+    width: 0;
+    height: 0;
+}
