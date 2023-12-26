@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://engineer-mitra.web.app/</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Home</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Material</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Contribute</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/About</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Log-In</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/profile.html</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Material/Civil</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Material/computerscience.html</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Material/Mechanical.html</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Material/Electrical.html</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Material/ECE.html</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Material/Metalurgy.html</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/Material/chemical.html</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://engineer-mitra.web.app/signup.html</loc>
+  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
