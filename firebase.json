@@ -45,6 +45,10 @@
         "destination": "/material/mechanical.html"
       },
       {
+        "source": "/material/electrical",
+        "destination": "/material/electrical.html"
+      },
+      {
         "source": "/material/electronics",
         "destination": "/material/electronics.html"
       },
@@ -106,11 +110,6 @@
       {
         "source": "*material/mechanical.html",
         "destination": "/material/mechanical",
-        "type": 301
-      },
-      {
-        "source": "*material/electrical.html",
-        "destination": "/material/electrical",
         "type": 301
       },
       {
