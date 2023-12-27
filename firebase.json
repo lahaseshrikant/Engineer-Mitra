@@ -113,6 +113,11 @@
         "type": 301
       },
       {
+        "source": "*material/electrical.html",
+        "destination": "/material/electrical",
+        "type": 301
+      },
+      {
         "source": "*material/electronics.html",
         "destination": "/material/electronics",
         "type": 301
