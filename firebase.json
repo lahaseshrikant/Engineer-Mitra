@@ -39,6 +39,30 @@
       {
         "source": "/material/civil",
         "destination": "/material/civil.html"
+      },
+      {
+        "source": "/material/mechanical",
+        "destination": "/material/mechanical.html"
+      },
+      {
+        "source": "/material/electrical",
+        "destination": "/material/electrical.html"
+      },
+      {
+        "source": "/material/electronics",
+        "destination": "/material/electronics.html"
+      },
+      {
+        "source": "/material/computerscience",
+        "destination": "/material/computerscience.html"
+      },
+      {
+        "source": "/material/chemical",
+        "destination": "/material/chemical.html"
+      },
+      {
+        "source": "/material/metallurgy",
+        "destination": "/material/metallurgy.html"
       }
     ],
 
@@ -81,6 +105,36 @@
       {
         "source": "*material/civil.html",
         "destination": "/material/civil",
+        "type": 301
+      },
+      {
+        "source": "*material/mechanical.html",
+        "destination": "/material/mechanical",
+        "type": 301
+      },
+      {
+        "source": "*material/electrical.html",
+        "destination": "/material/electrical",
+        "type": 301
+      },
+      {
+        "source": "*material/electronics.html",
+        "destination": "/material/electronics",
+        "type": 301
+      },
+      {
+        "source": "*material/computerscience.html",
+        "destination": "/material/computerscience",
+        "type": 301
+      },
+      {
+        "source": "*material/chemical.html",
+        "destination": "/material/chemical",
+        "type": 301
+      },
+      {
+        "source": "*material/metallurgy.html",
+        "destination": "/material/metallurgy",
         "type": 301
       }
     ],
