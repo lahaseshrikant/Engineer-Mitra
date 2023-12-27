@@ -116,8 +116,8 @@
           // IdP data available using getAdditionalUserInfo(result)
           const dt = new Date();
           return set(ref(database, 'users/' + user.uid), {
-            username: username,
-            email: email,
+            username: user.displayName,
+            email: user.email,
             created_at: dt,
             last_login: dt,
           })
