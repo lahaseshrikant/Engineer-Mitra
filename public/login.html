@@ -3,14 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="description"
-    content="Engineer Mitra is a platform for engineering students to share their study material and notes with other students.">
-  <meta name="keywords"
-    content="Engineer Mitra, Engineer, Mitra, Engineering, Notes, Study Material, Material, Study, Notes, Engineering Notes, Engineering Study Material, Engineering Material, Engineering Notes for all branches, Engineering Study Material for all branches, Engineering Material for all branches, Engineering Notes for all semesters, Engineering Study Material for all semesters, Engineering Material for all semesters, Engineering Notes for all years, Engineering Study Material for all years, Engineering Material for all years, Engineering Notes for all subjects, Engineering Study Material for all subjects, Engineering Material for all subjects, Engineering Notes for all universities, Engineering Study Material for all universities, Engineering Material for all universities, Engineer Mitra IIT Bhubaneswar, Civil engineering material">
+  <meta name="description" content="Engineer Mitra is a platform for engineering students to share their study material and notes with other students.">
+  <meta name="keywords" content="Engineer Mitra, Engineer, Mitra, Engineering, Notes, Study Material, Material, Study, Notes, Engineering Notes, Engineering Study Material, Engineering Material, Engineering Notes for all branches, Engineering Study Material for all branches, Engineering Material for all branches, Engineering Notes for all semesters, Engineering Study Material for all semesters, Engineering Material for all semesters, Engineering Notes for all years, Engineering Study Material for all years, Engineering Material for all years, Engineering Notes for all subjects, Engineering Study Material for all subjects, Engineering Material for all subjects, Engineering Notes for all universities, Engineering Study Material for all universities, Engineering Material for all universities, Engineer Mitra IIT Bhubaneswar, Civil engineering material">
   <meta name="author" content="Engineer Mitra">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Engineer - Login</title>
+
   <link rel="icon" href="Images/Logo.png" type="image/png" sizes="16x16">
   <link rel="stylesheet" href="StyleEngineer.css">
   <link rel="stylesheet" href="style.css">
@@ -33,6 +32,7 @@
 
     <hr id="horizontalLineAfterHeader">
   </header>
+
   <main>
     <section class="login-section">
       <h2 class="section-heading">User Login</h2>
@@ -77,6 +77,7 @@
     const database = getDatabase(app);
     const provider = new GoogleAuthProvider();
 
+    // Sign In With Google -------   [ line 80 to 118 ]
     const signInWithGoogleButton = document.getElementById('signInWithGoogleButton');
     signInWithGoogleButton.addEventListener('click', (e) => {
       e.preventDefault();
@@ -117,6 +118,7 @@
         });
     }
 
+    // Sign In With Email and Password -------   [ line 122 to 149 ]
     const loginButton = document.getElementById('loginButton');
 
     loginButton.addEventListener('click', (e) => {
@@ -129,7 +131,6 @@
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-          // ...
           const dt = new Date();
 
           return update(ref(database, 'users/' + user.uid), {
@@ -145,7 +146,6 @@
 
           alert(errorMessage);
         });
-
     })
   </script>
 
