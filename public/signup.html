@@ -115,8 +115,10 @@
           const user = result.user;
           // IdP data available using getAdditionalUserInfo(result)
           const dt = new Date();
-
-          return update(ref(database, 'users/' + user.uid), {
+          return set(ref(database, 'users/' + user.uid), {
+            username: username,
+            email: email,
+            created_at: dt,
             last_login: dt,
           })
         })
