@@ -2,6 +2,10 @@
 // Navbar functionality for mobile devices
 window.menubarFunction = function () {
     console.log("Function called");
+
+    var x = document.getElementById("menuButton");
+    x.classList.toggle("change");
+
     var navbar = document.getElementById("navbar");
     var isNavbarResponsive = navbar.classList.contains("responsive");
 
@@ -16,10 +20,11 @@ window.menubarFunction = function () {
 
 function closeNavbarOnClickOutside(event) {
     var navbar = document.getElementById("navbar");
-    var menuIcon = document.getElementById("navbarButton");
+    var menuIcon = document.getElementById("menuButton");
 
     if (!navbar.contains(event.target) && event.target !== menuIcon) {
         navbar.className = "navbar";
+        menuIcon.classList.toggle("change");
         document.removeEventListener("click", closeNavbarOnClickOutside);
     }
 }
