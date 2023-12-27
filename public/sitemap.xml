@@ -9,77 +9,67 @@
 
 <url>
   <loc>https://engineer-mitra.web.app/</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/Home</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/home</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/Material</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/material</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/Contribute</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/contribute</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/About</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/about</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/Log-In</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/login</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/profile.html</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/profile</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/Material/Civil</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/material/civil</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/Material/computerscience.html</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/material/computerscience.html</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/Material/Mechanical.html</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/material/mechanical.html</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/Material/Electrical.html</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/material/electrical.html</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/Material/ECE.html</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/material/ece.html</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://engineer-mitra.web.app/Material/Metalurgy.html</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://engineer-mitra.web.app/Material/chemical.html</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://engineer-mitra.web.app/signup.html</loc>
-  <lastmod>2023-12-23T17:34:38+00:00</lastmod>
+  <loc>https://engineer-mitra.web.app/material/chemical.html</loc>
+  <lastmod>2023-12-27T12:32:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
