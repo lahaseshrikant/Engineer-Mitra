@@ -82,6 +82,9 @@ async function submitContribution() {
             .catch((error) => {
                 console.error("Error adding document: ", error);
             });
+        document.getElementById('contributeForm').style.display = 'none';
+        document.getElementById('message').style.display = 'block';
+        document.getElementById('message').innerHTML = '<p>Thanks for Contributing!</p><a href="contribute.html" id="ContributeMoreLink">Contribute more</a>';
 
     } else {
         // If the user selected 'file', get the file from the file input
@@ -108,6 +111,9 @@ async function submitContribution() {
                 // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 console.log('Upload is ' + progress + '% done');
+                document.getElementById('contributeForm').style.display = 'none';
+                document.getElementById('message').style.display = 'block';
+                document.getElementById('message').innerHTML = 'Uploading...'+progress+'%'+'please wait';
             },
             (error) => {
                 // Handle unsuccessful uploads
@@ -139,6 +145,10 @@ async function submitContribution() {
                         .catch((error) => {
                             console.error("Error adding document: ", error);
                         });
+
+                    document.getElementById('contributeForm').style.display = 'none';
+                    document.getElementById('message').style.display = 'block';
+                    document.getElementById('message').innerHTML = '<p>Thanks for contributing!</p><a href="contribute.html" id="ContributeMoreLink">Contribute more</a>';
                 });
             }
         );

@@ -26,7 +26,7 @@ input[type="text"], input[type="date"], select {
     color: black;
 }
 
-button[type="submit"] {
+input[type="submit"] {
     padding: 10px 20px;
     background-color: #007BFF;
     color: #fff;
@@ -35,6 +35,35 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
+input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+input[type="submit"]:active {
+    background-color: #0056b3;
+}
+
+#message {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    color: black;
+    text-align: center;
+}
+
+#message p {
+    margin-bottom: 20px;
+}
+
+#message a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#message a:hover {
+    color: #0056b3;
+    text-decoration: underline;
 }
