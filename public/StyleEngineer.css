@@ -243,37 +243,38 @@ footer {
 
 /* STYLE FOR ABOUT PAGE */
 
-.headerAbout {
-    font-family: Arial, sans-serif;
-    background-color: #007BFF;
+#h1About {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 0.1em 0.1em 0.1em #6e5e5e;
     text-align: center;
     padding: 20px 0;
-    position: absolute;
+    position: relative;
     top: 10vh;
-    height: auto;
     margin-bottom: 2vh;
+    color: #fff; 
 }
-
 .containerAbout {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     max-width: 800px;
     margin: auto;
-    padding-top: 10vh;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2em; /* Changed from padding-top to padding for all sides */
+    box-shadow: 0 0 10px rgba(216, 208, 208, 0.3);
     border-radius: 5px;
     position: relative;
     top: 24vh;
     text-align: justify;
-}
-
-#h1About {
-    font-size: 7vh;
+    background: #212020; /* Added white background for better readability */
 }
 
 .pAbout {
-    font-size: 18px;
+    font-size: 1.5em; 
     line-height: 1.6;
+    color: #ffffff;
+    padding: 1em;
 }
+
 
 /* END OF STYLE OF ABOUT PAGE */
 
