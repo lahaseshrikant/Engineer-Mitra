@@ -21,16 +21,13 @@ header {
 
 /* Style for the navigation bar */
 .navbar {
-    display: none;
+    display: flex;
     justify-content: flex-end;
     /* Align links to the right */
     align-items: center;
     overflow: hidden;
     z-index: 100;
     height: 40px;
-}
-.navbar.show {
-    display: flex;
 }
 
 /* Navigation bar links */
@@ -41,7 +38,7 @@ header {
     position: relative;
     text-decoration: none;
     font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 /* On hover, the links will change color */
@@ -55,37 +52,31 @@ header {
     display: none;
 }
 
-.navbar-mobile.show {
-    display: none;
+.hidden {
+    visibility: hidden;
 }
 
-.alter{
+.alter {
     height: 100vh;
 }
+
 @media screen and (max-width: 600px) {
     .navbar {
         display: none;
     }
-.navbar.show {
-        display: none;
-    }
 
     .navbar-mobile {
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: flex-end;
         justify-content: flex-start;
     }
 
-.navbar-mobile.show {
-        display: flex;
-    }
     .navbar-mobile a:not(.menuIcon) {
         display: none;
     }
 
     .navbar-mobile.responsive {
-display: none;
         height: 100%;
         position: fixed;
         top: 0;
@@ -96,10 +87,6 @@ display: none;
         overflow-x: hidden;
         transition: 0.5s;
         background: linear-gradient(to bottom, #0072FF, #00C6FF);
-    }
-
-    .navbar-mobile.responsive.show{
-        display: flex;
     }
 
     .navbar-mobile.responsive a {
@@ -128,9 +115,7 @@ display: none;
         padding: 10px 14px;
         order: -1;
     }
-.navbar-mobile.show .menuIcon {
-        display: block;
-    }
+
     .bar1,
     .bar2,
     .bar3 {

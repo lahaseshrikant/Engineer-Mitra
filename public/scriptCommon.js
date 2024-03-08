@@ -4,26 +4,15 @@ window.menubarFunction = function () {
     console.log("Function called");
 
     var x = document.getElementById("menuButton");
-    var x = document.getElementById("menuButton1");
     x.classList.toggle("change");
 
     var navbar = document.getElementById("navbar-mobile");
-    var navbar1 = document.getElementById("navbar-mobile1");
     var isNavbarResponsive = navbar.classList.contains("responsive");
-    var isNavbar1Responsive = navbar1.classList.contains("responsive");
     if (!isNavbarResponsive) {
         navbar.classList.add("responsive");
         document.addEventListener("click", closeNavbarOnClickOutside);
     } else {
         navbar.classList.remove("responsive");
-        document.removeEventListener("click", closeNavbarOnClickOutside);
-    }
-
-    if (!isNavbar1Responsive) {
-        navbar1.classList.add("responsive");
-        document.addEventListener("click", closeNavbarOnClickOutside);
-    } else { 
-        navbar1.classList.remove("responsive");
         document.removeEventListener("click", closeNavbarOnClickOutside);
     }
 };
@@ -63,18 +52,22 @@ logEvent(analytics, 'notification_received');
 const auth = getAuth();
 window.auth = auth;
 
-var nav=document.getElementById('navbar');
-var nav1=document.getElementById('navbar1');
-var navm=document.getElementById('navbar-mobile');
-var navm1=document.getElementById('navbar-mobile1');
+var loginLink = document.getElementById('login-link');
+var loginLinkMobile = document.getElementById('m-login-link');
+var logoutLink = document.getElementById('logout-link');
+var logoutLinkMobile = document.getElementById('m-logout-link');
+
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in.
-        nav1.classList.add("show");
-        navm1.classList.add("show");
+        loginLink.innerHTML = "Profile";
+        loginLinkMobile.innerHTML = "Profile";
+        loginLink.href = "profile.html";
+        loginLinkMobile.href = "profile.html";
     } else {
-        nav.classList.add("show");
-        navm.classList.add("show");
+        // No user is signed in.
+        loginLink.href = "login.html";
+        loginLinkMobile.href = "login.html";
     }
 });
 
@@ -89,6 +82,18 @@ if (logoutLink) {
             console.error('Sign out error', error);
         });
     });
-} else {
+}
+if(logoutLinkMobile) {
+    logoutLinkMobile.addEventListener('click', function () {
+        auth.signOut().then(function () {
+            // Sign-out successful, redirect to login page
+            window.location.href = "login.html";
+        }).catch(function (error) {
+            // An error happened during sign out
+            console.error('Sign out error', error);
+        });
+    });
+}
+else {
     console.error('Logout link not found');
 }
