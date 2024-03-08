@@ -4,15 +4,26 @@ window.menubarFunction = function () {
     console.log("Function called");
 
     var x = document.getElementById("menuButton");
+    var x = document.getElementById("menuButton1");
     x.classList.toggle("change");
 
     var navbar = document.getElementById("navbar-mobile");
+    var navbar1 = document.getElementById("navbar-mobile1");
     var isNavbarResponsive = navbar.classList.contains("responsive");
+    var isNavbar1Responsive = navbar1.classList.contains("responsive");
     if (!isNavbarResponsive) {
         navbar.classList.add("responsive");
         document.addEventListener("click", closeNavbarOnClickOutside);
     } else {
         navbar.classList.remove("responsive");
+        document.removeEventListener("click", closeNavbarOnClickOutside);
+    }
+
+    if (!isNavbar1Responsive) {
+        navbar1.classList.add("responsive");
+        document.addEventListener("click", closeNavbarOnClickOutside);
+    } else { 
+        navbar1.classList.remove("responsive");
         document.removeEventListener("click", closeNavbarOnClickOutside);
     }
 };
@@ -52,19 +63,18 @@ logEvent(analytics, 'notification_received');
 const auth = getAuth();
 window.auth = auth;
 
-var loginLink = document.getElementById('login-link');
-var logoutLink = document.getElementById('logout-link');
-var profileLink = document.getElementById('profile-link');
-
+var nav=document.getElementById('navbar');
+var nav1=document.getElementById('navbar1');
+var navm=document.getElementById('navbar-mobile');
+var navm1=document.getElementById('navbar-mobile1');
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in.
-        loginLink.innerHTML = "Profile";
-        loginLink.href = "profile.html";
+        nav1.classList.add("show");
+        navm1.classList.add("show");
     } else {
-        // No user is signed in.
-        loginLink.innerHTML = "Login";
-        loginLink.href = "login.html";
+        nav.classList.add("show");
+        navm.classList.add("show");
     }
 });
 
