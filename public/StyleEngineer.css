@@ -38,7 +38,7 @@ header {
     position: relative;
     text-decoration: none;
     font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 /* On hover, the links will change color */
@@ -56,6 +56,9 @@ header {
     visibility: hidden;
 }
 
+.alter {
+    height: 100vh;
+}
 @media screen and (max-width: 600px) {
     .navbar {
         display: none;
