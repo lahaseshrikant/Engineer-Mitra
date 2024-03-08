@@ -19,11 +19,11 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J2NB2EBPJQ"></script>
   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-      gtag('config', 'G-J2NB2EBPJQ');
+    gtag('config', 'G-J2NB2EBPJQ');
   </script>
 </head>
 
@@ -32,13 +32,21 @@
     <a href="index.html"><img class="logo" src="Images/Logo.jpg" alt="Engineer Mitra"></a>
 
     <nav class="navbar" id="navbar">
-      <a href="index.html"><i class="fa fa-fw fa-home"></i>Home</a>
-      <a href="material.html"><i class="fa fa-book"></i> Material</a>
-      <a href="contribute.html"><i class="fa fa-upload"></i> Upload</a>
-      <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
-      <a href="login.html" class="hidden" id="login-link"><i class="fa fa-fw fa-sign-in"></i>Log In</a>
-      <a href="profile.html" class="hidden" id="profile-link"><i class="fa fa-fw fa-user"></i>Profile</a>
-      <a id="logout-link" class="hidden"><i class="fa fa-sign-out"></i> Logout</a>
+      <div class="nav-link"><a href="index.html" id="home-link">Home</a></div>
+      <div class="nav-link"><a href="material.html" id="material-link">Material</a></div>
+      <div class="nav-link"><a href="contribute.html" id="contribute-link">Contribute</a></div>
+      <div class="nav-link"><a href="about.html" id="about-link">About</a></div>
+      <div class="nav-link"><a href="login.html" id="login-link">Log In</a></div>
+      <div class="nav-link"><a id="logout-link">Logout</a></div>
+    </nav>
+
+    <nav class="navbar-mobile" id="navbar-mobile">
+      <div class="nav-link"><a href="index.html" id="home-link"><i class="fa fa-home"></i> Home</a></div>
+      <div class="nav-link"><a href="material.html" id="material-link"><i class="fa fa-book"></i> Material</a></div>
+      <div class="nav-link"><a href="contribute.html" id="contribute-link"><i class="fa fa-upload"></i>Contribute</a></div>
+      <div class="nav-link"><a href="about.html" id="about-link"><i class="fa fa-info-circle"></i> About</a></div>
+      <div class="nav-link"><a href="login.html" id="login-link"><i class="fa fa-sign-in"></i> Log In</a></div>
+      <div class="nav-link"><a id="logout-link"><i class="fa fa-sign-out"></i> Logout</a></div>
       <div class="menuIcon" id="menuButton" onclick="menubarFunction(this)">
         <div class="bar1"></div>
         <div class="bar2"></div>

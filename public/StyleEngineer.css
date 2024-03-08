@@ -1,13 +1,22 @@
+/* common style for all pages */
+body {
+    background-color: #000000;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    height: 40px;
     border-bottom: 1px solid #2d2c2c;
 }
 
 .logo {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 /* Style for the navigation bar */
@@ -17,9 +26,8 @@ header {
     /* Align links to the right */
     align-items: center;
     overflow: hidden;
-    padding: 0px;
-    margin: 0px;
-    font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
+    z-index: 100;
+    height: 40px;
 }
 
 /* Navigation bar links */
@@ -27,73 +35,81 @@ header {
     color: white;
     text-align: center;
     padding: 12px 11px;
+    position: relative;
     text-decoration: none;
-    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
+    font-size: 15px;
 }
 
 /* On hover, the links will change color */
 .navbar a:hover {
     color: #19721e;
-    font-size: larger;
-    font-weight: bold;
 }
 
 /* Responsive navigation menu */
-.navbar .menuIcon {
+
+.navbar-mobile {
     display: none;
 }
 
-.hidden{
-    display: none;
+.hidden {
+    visibility: hidden;
 }
 
 @media screen and (max-width: 600px) {
     .navbar {
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .navbar .menuIcon {
-        display: block;
-        order: -1;
-        /* Place the menuIcon at the top on small screens */
-    }
-
-    .navbar a:not(:last-child) {
         display: none;
     }
 
-    .navbar.responsive a {
-        display: block;
-        text-align: center;
-        color: #000;
+    .navbar-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
     }
 
-    .navbar.responsive {
-        overflow-y: auto;
-        /* Enable vertical scrolling for the menu */
-        max-height: 100vh;
-        /* Set the maximum height for the menu */
-        position: absolute;
-        right: 0px;
-        z-index: 1;
-        border-top-left-radius: 50%;
-        border-bottom-left-radius: 50%;
+    .navbar-mobile a:not(.menuIcon) {
+        display: none;
+    }
+
+    .navbar-mobile.responsive {
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 150px;
+        padding-top: 0;
+        z-index: 100;
+        overflow-x: hidden;
+        transition: 0.5s;
         background: linear-gradient(to bottom, #0072FF, #00C6FF);
     }
 
-    .navbar.responsive a:hover {
-        font-size: larger;
-        color: white;
+    .navbar-mobile.responsive a {
+        display: block;
+        padding: 8px 8px 8px 8px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #000;
+        height: 5.5vh;
+        transition: 0.3s;
+    }
+
+    .navbar-mobile.responsive a:hover {
+        color: #ffffff;
         background: none;
+        font-size: 22px;
+        font-weight: bold;
+        transition: 0.3s;
     }
 
     /* Menu Icon Design */
-    .menuIcon {
-        display: inline-block;
+    .navbar-mobile .menuIcon {
+        display: block;
         cursor: pointer;
         color: white;
-        padding: 12px 12px;
+        padding: 10px 14px;
+        order: -1;
     }
 
     .bar1,
@@ -147,61 +163,6 @@ h2 {
     text-align: center;
 }
 
-body {
-    background-color: #000;
-    color: white;
-    margin: 0;
-    padding: 0;
-}
-
-div1 {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    position: absolute;
-}
-
-.Home_TechnicalSkill_Button {
-    background: linear-gradient(270deg, #1b2e61, #2962ff 13.02%, #726fff 28.12%, #c883ff 41.15%, #ab4df8 54.69%, #d1007e 69.27%, #dc132b 84.9%, #541c1c);
-    margin: 2vw;
-    width: 100px;
-    height: 50px;
-
-    .round-tab-button-JbssaNvk {
-        -webkit-tap-highlight-color: transparent;
-        align-items: center;
-        border-style: solid;
-        border-width: 1px;
-        box-sizing: border-box;
-        cursor: default;
-        display: inline-flex;
-        flex: 0 0 auto;
-        justify-content: center;
-        max-width: 100%;
-        outline: none;
-        overflow: visible;
-        position: relative
-    }
-}
-
-.Home_EngineeringEducation_Button {
-    background: linear-gradient(270deg, #1b2e61, #2962ff 13.02%, #726fff 28.12%, #c883ff 41.15%, #ab4df8 54.69%, #d1007e 69.27%, #dc132b 84.9%, #541c1c);
-    margin: 2vw;
-    width: 100px;
-    height: 50px;
-}
-
-.wholeDivDom {
-    margin: 0.7%;
-}
-
-#user_upload_messege {
-    text-align: justify;
-    border-width: 10px;
-    padding: 10px;
-    margin: 10px;
-}
-
 .materialbutton {
     border-radius: 5px;
     border-bottom-style: groove;
@@ -243,38 +204,37 @@ footer {
 
 /* STYLE FOR ABOUT PAGE */
 
-#h1About {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 3em;
-    font-weight: bold;
-    text-shadow: 0.1em 0.1em 0.1em #6e5e5e;
+.headerAbout {
+    font-family: Arial, sans-serif;
+    background-color: #007BFF;
     text-align: center;
     padding: 20px 0;
-    position: relative;
+    position: absolute;
     top: 10vh;
+height: auto;
     margin-bottom: 2vh;
-    color: #fff; 
-}
+    }
+
 .containerAbout {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Arial, sans-serif;
     max-width: 800px;
     margin: auto;
-    padding: 2em; /* Changed from padding-top to padding for all sides */
-    box-shadow: 0 0 10px rgba(216, 208, 208, 0.3);
+    padding-top: 10vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     position: relative;
     top: 24vh;
     text-align: justify;
-    background: #212020; /* Added white background for better readability */
+    }
+
+#h1About {
+    font-size: 7vh;
 }
 
 .pAbout {
-    font-size: 1.5em; 
+    font-size: 18px;
     line-height: 1.6;
-    color: #ffffff;
-    padding: 1em;
-}
-
+    }
 
 /* END OF STYLE OF ABOUT PAGE */
 
@@ -287,9 +247,6 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* Adjust as needed */
-    margin: 0 auto;
-    /* Center the container */
     background-color: white;
     border-top: 5px solid white;
 }
@@ -302,15 +259,17 @@ footer {
 
 /* Style for individual sections */
 .section {
-    height: auto;
+    height: 45vh;
+    font-size: 1.5rem;
     width: calc(50% - 10px);
     /* Each section takes half of the container width with a small gap */
-    margin-bottom: 20px;
-    padding: 20px;
     border: 0px solid #ccc;
     box-sizing: border-box;
+    padding: 20px;
+    margin: 20px 0;
     background-color: #f9f9f9;
-    color: #000
+    color: #000;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 
@@ -320,9 +279,8 @@ footer {
 }
 
 .section:hover {
-
-    font-size: large;
-    z-index: 1;
+    transform: scale3d(1.05, 1.05, 1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #section3 {

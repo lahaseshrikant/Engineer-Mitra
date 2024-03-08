@@ -6,9 +6,8 @@ window.menubarFunction = function () {
     var x = document.getElementById("menuButton");
     x.classList.toggle("change");
 
-    var navbar = document.getElementById("navbar");
+    var navbar = document.getElementById("navbar-mobile");
     var isNavbarResponsive = navbar.classList.contains("responsive");
-
     if (!isNavbarResponsive) {
         navbar.classList.add("responsive");
         document.addEventListener("click", closeNavbarOnClickOutside);
@@ -19,11 +18,11 @@ window.menubarFunction = function () {
 };
 
 function closeNavbarOnClickOutside(event) {
-    var navbar = document.getElementById("navbar");
+    var navbar = document.getElementById("navbar-mobile");
     var menuIcon = document.getElementById("menuButton");
 
     if (!navbar.contains(event.target) && event.target !== menuIcon) {
-        navbar.className = "navbar";
+        navbar.className = "navbar-mobile";
         menuIcon.classList.toggle("change");
         document.removeEventListener("click", closeNavbarOnClickOutside);
     }
@@ -60,20 +59,12 @@ var profileLink = document.getElementById('profile-link');
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in.
-        logoutLink.classList.remove('hidden');
-        profileLink.classList.remove('hidden');
-        
-        if (window.innerWidth <= 600) {
-            loginLink.style.display = 'none';
-        }
+        loginLink.innerHTML = "Profile";
+        loginLink.href = "profile.html";
     } else {
         // No user is signed in.
-        loginLink.classList.remove('hidden');
-
-        if (window.innerWidth <= 600) {
-            profileLink.style.display = 'none';
-            logoutLink.style.display = 'none';
-        } 
+        loginLink.innerHTML = "Login";
+        loginLink.href = "login.html";
     }
 });
 
