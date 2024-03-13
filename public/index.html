@@ -14,6 +14,7 @@
 
     <link rel="icon" type="image/x-icon" href="Images/Logo.jpg">
     <link rel="stylesheet" href="StyleEngineer.css">
+    <link rel="stylesheet" href="index.css">
     <!-- icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -40,7 +41,7 @@
 <!-- Main Content -->
 
 <body>
-    <section class="alter">
+    <section class="alter" id="firstView">
         <header>
             <a href="index.html"><img class="logo" src="Images/Logo.jpg" alt="Engineer Mitra"></a>
             <nav class="navbar" id="navbar">
@@ -49,20 +50,16 @@
                 <div class="nav-link"><a href="contribute.html" id="contribute-link">Contribute</a></div>
                 <div class="nav-link"><a href="about.html" id="about-link">About</a></div>
                 <div class="nav-link"><a href="login.html" id="login-link">Log In</a></div>
-                <div class="nav-link"><a id="logout-link">Logout</a></div>
+                <div class="nav-link"><a href="signup.html" id="signup-link">Sign Up</a></div>
             </nav>
 
             <nav class="navbar-mobile" id="navbar-mobile">
                 <div class="nav-link"><a href="index.html" id="m-home-link"><i class="fa fa-home"></i> Home</a></div>
-                <div class="nav-link"><a href="material.html" id="m-material-link"><i class="fa fa-book"></i> Material</a>
-                </div>
-                <div class="nav-link"><a href="contribute.html" id="m-contribute-link"><i class="fa fa-upload"></i>
-                        Contribute</a></div>
-                <div class="nav-link"><a href="about.html" id="m-about-link"><i class="fa fa-info-circle"></i> About</a>
-                </div>
-                <div class="nav-link"><a href="login.html" id="m-login-link"><i class="fa fa-sign-in" id="login-icon"></i> Log In</a>
-                </div>
-                <div class="nav-link"><a id="m-logout-link"><i class="fa fa-sign-out"></i> Logout</a></div>
+                <div class="nav-link"><a href="material.html" id="m-material-link"><i class="fa fa-book"></i> Material</a></div>
+                <div class="nav-link"><a href="contribute.html" id="m-contribute-link"><i class="fa fa-upload"></i>Contribute</a></div>
+                <div class="nav-link"><a href="about.html" id="m-about-link"><i class="fa fa-info-circle"></i> About</a></div>
+                <div class="nav-link"><a href="login.html" id="m-login-link"><i class="fa fa-sign-in" id="login-icon"></i> Log In</a></div>
+                <div class="nav-link"><a href="signup.html" id="m-signup-link"><i class="fa fa-user-plus"></i> Sign Up</a></div>
                 <div class="menuIcon" id="menuButton" onclick="menubarFunction(this)">
                     <div class="bar1"></div>
                     <div class="bar2"></div>
@@ -74,11 +71,12 @@
         <h1 id="namskar"><span lang="mr"><b>नमस्कार<br></b></span></h1>
         <blockquote style="text-align: center">"This website is created by Engineer, Run by Engineer, For Engineer"
         </blockquote>
-        <h2>Engineer's, It's Your Place :-)</h2>
-        <h3>
+        <h2 id="indexHead2">Engineer's, It's Your Place :-)</h2>
+        <h3 id="indexHead3">
             <a href="material.html" class="materiallink">
                 Go and check study material here
-                <button class="materialbutton">Material</button>
+                <i class="fa fa-arrow-right"></i>
+                <i class="fa fa-book"></i>
             </a>
         </h3>
     </section>
@@ -87,7 +85,7 @@
         <div class="container">
             <div class="section" id="section1">
                 <h2>Section 1</h2>
-                <p>This is the content of Section 1.</p>
+                <p>One day or <br> Day one?<br> You decide</p>
             </div>
             <div class="section" id="section2">
                 <h2>Section 2</h2>

@@ -1,13 +1,94 @@
 const app = window.app;
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 // Get a reference to the Firestore service
 const db = getFirestore(app);
 
 // Get a reference to the Firebase Storage service
+
 const storage = getStorage(app);
 
+// for colleges dropdown
+
+// Fetch the college list from the database
+const colleges = collection(db, "collegesList")
+
+getDocs(colleges).then((querySnapshot) => {
+    const select = document.getElementById('college');
+
+    // Add a default "Select a college" option
+    const defaultOption = document.createElement('option');
+    defaultOption.value = "";
+    defaultOption.text = "Select a college";
+    select.appendChild(defaultOption);
+
+    // Add an "Add new college" option to the dropdown
+    const addNewOption = document.createElement('option');
+    addNewOption.value = "add-new";
+    addNewOption.text = "Add new college";
+    select.appendChild(addNewOption);
+
+    querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        console.log(doc.data().collegeName);
+        const option = document.createElement('option');
+        option.value = doc.data().collegeName;
+        option.text = doc.data().collegeName;
+        select.appendChild(option);
+    });
+});
+
+async function addCollege(collegeName, collegeType, country, state) {
+    const colleges = collection(db, "collegesList");
+    const newCollege = { collegeName: collegeName, collegeType: collegeType, country: country, state: state };
+    await addDoc(colleges, newCollege);
+
+    // Create a new option element and add it to the datalist
+    const select = document.getElementById('college');
+    const option = document.createElement('option');
+    option.value = collegeName;
+    option.text = collegeName;
+    select.appendChild(option);
+
+    // Select the newly added college
+    select.value = collegeName;
+}
+
+// Add an event listener to the select element
+document.getElementById('college').addEventListener('change', function() {
+    if (this.value === "add-new") {
+        // Show the modal
+        document.getElementById('collegeModal').style.display = 'block';
+    }
+});
+
+// Add an event listener to the form
+document.getElementById('collegeForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from being submitted normally
+
+    // Get the college details from the form
+    const newCollegeName = document.getElementById('collegeName').value;
+    const newCollegeType = document.getElementById('collegeType').value;
+    const newCountry = document.getElementById('country').value;
+    const newState = document.getElementById('state').value;
+
+    // Add the new college
+    addCollege(newCollegeName, newCollegeType, newCountry, newState);
+
+    // Hide the modal and clear the form
+    document.getElementById('collegeModal').style.display = 'none';
+    event.target.reset();
+});
+
+document.getElementById('cancelButton').addEventListener('click', function() {
+    // Hide the modal and clear the form
+    document.getElementById('collegeModal').style.display = 'none';
+    document.getElementById('collegeForm').reset();
+});
+
+// Function to submit the contribution form
 async function submitContribution() {
     const form = document.getElementById('contributeForm');
 
@@ -113,7 +194,7 @@ async function submitContribution() {
                 console.log('Upload is ' + progress + '% done');
                 document.getElementById('contributeForm').style.display = 'none';
                 document.getElementById('message').style.display = 'block';
-                document.getElementById('message').innerHTML = 'Uploading...'+progress+'%'+'please wait';
+                document.getElementById('message').innerHTML = 'Uploading...' + progress + '%' + 'please wait';
             },
             (error) => {
                 // Handle unsuccessful uploads
@@ -181,13 +262,19 @@ window.onload = function () {
     materialType.addEventListener('change', function () {
         if (this.value === 'previousYearPaper') {
             year.style.display = 'block';
+            document.getElementById('yearLabel').style.display = 'block';
             submissionDate.style.display = 'none';
+            document.getElementById('submissionDateLabel').style.display = 'none';
         } else if (this.value === 'assignment') {
             year.style.display = 'none';
+            document.getElementById('yearLabel').style.display = 'none';
             submissionDate.style.display = 'block';
+            document.getElementById('submissionDateLabel').style.display = 'block';
         } else {
             year.style.display = 'none';
             submissionDate.style.display = 'none';
+            document.getElementById('yearLabel').style.display = 'none';
+            document.getElementById('submissionDateLabel').style.display = 'none';
         }
     });
 
@@ -226,3 +313,4 @@ window.onload = function () {
         submitContribution();
     });
 }
+

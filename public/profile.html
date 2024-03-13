@@ -43,20 +43,21 @@
             <div class="nav-link"><a href="contribute.html" id="contribute-link">Contribute</a></div>
             <div class="nav-link"><a href="about.html" id="about-link">About</a></div>
             <div class="nav-link"><a href="login.html" id="login-link">Log In</a></div>
-            <div class="nav-link"><a id="logout-link">Logout</a></div>
+            <div class="nav-link"><a href="signup.html" id="signup-link">Sign Up</a></div>
         </nav>
 
         <nav class="navbar-mobile" id="navbar-mobile">
             <div class="nav-link"><a href="index.html" id="m-home-link"><i class="fa fa-home"></i> Home</a></div>
             <div class="nav-link"><a href="material.html" id="m-material-link"><i class="fa fa-book"></i> Material</a>
             </div>
-            <div class="nav-link"><a href="contribute.html" id="m-contribute-link"><i class="fa fa-upload"></i>
-                    Contribute</a></div>
+            <div class="nav-link"><a href="contribute.html" id="m-contribute-link"><i
+                        class="fa fa-upload"></i>Contribute</a></div>
             <div class="nav-link"><a href="about.html" id="m-about-link"><i class="fa fa-info-circle"></i> About</a>
             </div>
-            <div class="nav-link"><a href="login.html" id="m-login-link"><i class="fa fa-sign-in" id="login-icon"></i> Log In</a>
+            <div class="nav-link"><a href="login.html" id="m-login-link"><i class="fa fa-sign-in" id="login-icon"></i>
+                    Log In</a></div>
+            <div class="nav-link"><a href="signup.html" id="m-signup-link"><i class="fa fa-user-plus"></i> Sign Up</a>
             </div>
-            <div class="nav-link"><a id="m-logout-link"><i class="fa fa-sign-out"></i> Logout</a></div>
             <div class="menuIcon" id="menuButton" onclick="menubarFunction(this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
@@ -67,28 +68,85 @@
     <main>
         <!-- User Profile Section -->
         <section id="user-profile">
-            <h2>User Profile</h2>
+            <h2 id="profileHeading">User Profile</h2>
             <p id="user-email">Email: Loading...</p>
             <p id="user-uid">UID: Loading...</p>
+            <p id="user-username">Username: Loading...</p>
+            <p id="user-photo">Photo:</p>
+            <p id="user-phone">Phone: Loading...</p>
+            <button id="profile-logout-link">Logout</button>
         </section>
 
         <!-- Logout Button -->
-        <button id="profile-logout-link">Logout</button>
+
     </main>
     <script type="module" src="scriptCommon.js"></script>
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getStorage, ref as reference, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+
         const app = window.app;
         const auth = window.auth;
         const database = getDatabase(app);
+        const storage = getStorage(app);
 
         window.onload = function () {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     document.getElementById('user-email').textContent = 'Email: ' + user.email;
                     document.getElementById('user-uid').textContent = 'UID: ' + user.uid;
+                    document.getElementById('user-username').textContent = 'Username: ' + user.displayName;
+
+                    if (user.photoURL) {
+                        const img = document.createElement('img');
+                        img.src = user.photoURL;
+                        img.alt = 'Profile Picture';
+                        document.getElementById('user-photo').appendChild(img);
+                    }
+                    else {
+                        document.getElementById('user-photo').innerHTML = `<p>Upload a profile photo to stand out from the crowd. Click on the profile icon to upload a photo.<p><input type="file" id="profilePicUpload" accept="image/*"> <button id="uploadButton" disabled>Upload</button>`;
+                        document.getElementById('user-photo').style.color = 'red';
+
+                        // Add an event listener to the file input
+                        document.getElementById('profilePicUpload').addEventListener('change', function (event) {
+                            // Get the selected file
+                            const file = event.target.files[0];
+
+                            // Create a storage ref
+                            const storageRef = reference(storage, 'profilePics/' + file.name);
+
+                            // Enable the upload button and add an event listener to it
+                            const uploadButton = document.getElementById('uploadButton');
+                            uploadButton.disabled = false;
+                            // Upload the file
+                            const uploadTask = uploadBytesResumable(storageRef, file);
+
+                            uploadTask.on('state_changed',
+                                (snapshot) => {
+                                    // Handle the upload progress
+                                },
+                                (error) => {
+                                    // Handle unsuccessful uploads
+                                },
+                                () => {
+                                    // Handle successful uploads on complete
+                                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                                        // Update the user's photoURL with the URL of the uploaded file
+                                        updateProfile(auth.currentUser, { photoURL: downloadURL });
+                                    });
+                                }
+                            );
+                        });
+                    }
+                    if (user.phoneNumber) {
+                        document.getElementById('user-phone').textContent = 'Phone: ' + user.phoneNumber;
+                    }
+                    else {
+                        document.getElementById('user-phone').textContent = 'Phone: Not provided';
+                    }
+
                 } else {
                     // User is signed out
                     window.location.href = "login.html";

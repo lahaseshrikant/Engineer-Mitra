@@ -56,14 +56,21 @@ var loginLink = document.getElementById('login-link');
 var loginLinkMobile = document.getElementById('m-login-link');
 var logoutLink = document.getElementById('logout-link');
 var logoutLinkMobile = document.getElementById('m-logout-link');
+var signUpLink = document.getElementById('signup-link');
+var signUpLinkMobile = document.getElementById('m-signup-link');
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in.
         loginLink.innerHTML = "Profile";
-        loginLinkMobile.innerHTML = "Profile";
+        loginLinkMobile.innerHTML = `<i class="fa fa-user"> Profile<i>`;
         loginLink.href = "profile.html";
         loginLinkMobile.href = "profile.html";
+
+        signUpLink.innerHTML = "Logout";
+        signUpLinkMobile.innerHTML = `<i class="fa fa-sign-out"> Logout</i>`;
+        signUpLink.id = "logout-link";
+        signUpLinkMobile.id = "m-logout-link";
     } else {
         // No user is signed in.
         loginLink.href = "login.html";
@@ -93,7 +100,4 @@ if(logoutLinkMobile) {
             console.error('Sign out error', error);
         });
     });
-}
-else {
-    console.error('Logout link not found');
 }

@@ -28,6 +28,7 @@
 
         gtag('config', 'G-J2NB2EBPJQ');
     </script>
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4998839759449166"
         crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-4998839759449166?ers=1"
@@ -45,20 +46,21 @@
             <div class="nav-link"><a href="contribute.html" id="contribute-link">Contribute</a></div>
             <div class="nav-link"><a href="about.html" id="about-link">About</a></div>
             <div class="nav-link"><a href="login.html" id="login-link">Log In</a></div>
-            <div class="nav-link"><a id="logout-link">Logout</a></div>
+            <div class="nav-link"><a href="signup.html" id="signup-link">Sign Up</a></div>
         </nav>
 
         <nav class="navbar-mobile" id="navbar-mobile">
             <div class="nav-link"><a href="index.html" id="m-home-link"><i class="fa fa-home"></i> Home</a></div>
             <div class="nav-link"><a href="material.html" id="m-material-link"><i class="fa fa-book"></i> Material</a>
             </div>
-            <div class="nav-link"><a href="contribute.html" id="m-contribute-link"><i class="fa fa-upload"></i>
-                    Contribute</a></div>
+            <div class="nav-link"><a href="contribute.html" id="m-contribute-link"><i
+                        class="fa fa-upload"></i>Contribute</a></div>
             <div class="nav-link"><a href="about.html" id="m-about-link"><i class="fa fa-info-circle"></i> About</a>
             </div>
-            <div class="nav-link"><a href="login.html" id="m-login-link"><i class="fa fa-sign-in" id="login-icon"></i> Log In</a>
+            <div class="nav-link"><a href="login.html" id="m-login-link"><i class="fa fa-sign-in" id="login-icon"></i>
+                    Log In</a></div>
+            <div class="nav-link"><a href="signup.html" id="m-signup-link"><i class="fa fa-user-plus"></i> Sign Up</a>
             </div>
-            <div class="nav-link"><a id="m-logout-link"><i class="fa fa-sign-out"></i> Logout</a></div>
             <div class="menuIcon" id="menuButton" onclick="menubarFunction(this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
@@ -69,7 +71,8 @@
     <main>
         <div class="containerContribute">
             <h1>Contribute to Engineer Mitra</h1>
-            <p>Engineer Mitra is a platform for students to share their study material with other students. You can
+            <p id="contributeMessege">Engineer Mitra is a platform for students to share their study material with other
+                students. You can
                 contribute to Engineer Mitra by uploading your study material.</p>
 
             <form id="contributeForm">
@@ -117,15 +120,38 @@
                     <!-- Add more options based on your requirements -->
                 </select>
 
-                <label for="year" style="display: none;">Year:</label>
+                <label for="year" id="yearLabel" style="display: none;">Year:</label>
                 <input type="text" id="year" name="year" placeholder="Enter Year" style="display: none;">
                 <label for="college">College:</label>
-                <input type="text" id="college" name="college" placeholder="Enter College">
-                <label for="submissionDate" style="display: none;">Submission Date:</label>
+                <select id="college">
+
+                </select>
+                <!-- Add a modal with a form to collect college details -->
+                <label for="submissionDate" id="submissionDateLabel" style="display: none;">Submission Date:</label>
                 <input type="date" id="submissionDate" name="submissionDate" style="display: none;">
 
                 <input type="submit" value="Submit Contribution">
             </form>
+
+            <div id="collegeModal" style="display: none;">
+                <form id="collegeForm">
+                    <label for="collegeName">College Name:</label>
+                    <input type="text" id="collegeName" name="collegeName" required>
+
+                    <label for="collegeType">College Type:</label>
+                    <input type="text" id="collegeType" name="collegeType" required>
+
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" required>
+
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="state" required>
+
+                    <input type="submit" value="Add College">
+                    <button type="button" id="cancelButton">Cancel</button>
+                </form>
+            </div>
+
             <div id="message" style="display: none;">
             </div>
         </div>
