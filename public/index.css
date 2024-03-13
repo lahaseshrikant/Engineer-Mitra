@@ -1,0 +1,112 @@
+/* STYLE FOR HOME PAGE */
+#namskar {
+    text-align: center;
+    font-size: max(10vw, 10vh);
+    background: linear-gradient(180deg, #1b2e61, #2962ff 13.02%, #726fff 28.12%, #c883ff 41.15%, #ab4df8 54.69%, #d1007e 69.27%, #dc132b 84.9%, #541c1c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-text-fill-color: #0000;
+    padding-bottom: 1vw;
+}
+
+@media screen and (min-width: 1920px) {
+    #namskar {
+        padding-bottom: 20px;
+    }
+}
+
+#indexHead2 {
+    text-align: center;
+}
+
+.materiallink {
+    color: rgb(168, 224, 159);
+    text-decoration: none;
+}
+
+#indexHead3 {
+    text-align: center;
+}
+
+/* -----------------------------------------------------------------*/
+
+/*  DATE : 03/10/2023   [ STYLE FOR SECTIONS FROM HOME PAGE ] */
+
+/* Style for the container that holds the sections */
+.container {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 5px;
+    justify-content: space-between;
+    background-color: white;
+}
+
+@media screen and (min-width: 600px) {
+    .container {
+        min-height: 100vh;
+    }
+}
+
+/* Style for individual sections */
+.section {
+    height: 50vh;
+    font-size: 1.5rem;
+    width: calc(50% - 5px);
+    /* Each section takes half of the container width with a small gap */
+    border: 0px solid #f9f9f9;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    color: #000;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#section1 {
+    background: linear-gradient(90deg, #030354, #1CB5E0);
+    color: white;
+}
+
+#section2 {
+    background: linear-gradient(270deg, #268867, #c0e6df);
+}
+
+.section:hover {
+    transform: scale3d(1.05, 1.05, 1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#section3 {
+    background-color: #000;
+    color: #fbfbfd;
+}
+
+/* Media query to stack sections vertically on smaller screens */
+@media screen and (max-width: 600px) {
+    .section {
+        width: 100%;
+        /* Full width on smaller screens */
+    }
+
+    #section3 {
+        background-color: white;
+        color: black;
+    }
+
+    #section4 {
+        background-color: black;
+        color: white;
+    }
+
+    #HomeFooter {
+        background-color: white;
+    }
+}
+
+#firstView {
+    height: 100vh;
+    background-color: black;
+}
