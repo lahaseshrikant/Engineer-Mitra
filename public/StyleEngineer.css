@@ -109,7 +109,7 @@ footer {
         z-index: 100;
         overflow-x: hidden;
         background: linear-gradient(to bottom, #97a1ad, #031419a9);
-        animation: slideIn 1s forwards;
+        animation: slideIn 0.5s forwards;
     }
 
     @keyframes slideOut {
