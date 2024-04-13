@@ -1,79 +1,64 @@
 .heading {
     text-align: center;
-}
-.ChooseBranch {
-  display: grid;
-  grid-column-gap: 4vw;
-  grid-template-columns: auto auto auto;
-  padding: 10px;
-  margin: auto;
-  grid-row-gap: 50px;
-  justify-content: center;
+    margin-bottom: 20px;
 }
 
-.ChooseBranch-item {
-    background-color: white;
-    border-radius: 10%;
-    font-size: 1vw;
-    color: black;
-    width: 15vw;
-    height: 15vh;
-    margin: auto;
-    text-align: center;
-    background-size: cover;
+.Branches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25vw, 0.9fr));
+    grid-template-rows: repeat(auto-fit, minmax(25vh, 0.9fr));
+    gap: 20px;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 80vw;
+}
 
+.Branches-item {
+    text-decoration: none;
+    color: #fff;
+    background-color: #333;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.Branches-item:hover {
+    background-color: #555;
 }
 
 .branchtext {
-    color: white;
-    text-decoration: none;
-    background: black;
-    align-content: center;
-    z-index:inherit; 
-}
-#civilimg {
-    background-image: url(Images/civil.jpeg);
-}
-
-#cseimg {
-    background-image: url(Images/cse.webp);
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: #ffffff;
+    color: #333;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 9px;
 }
 
-#mechimg {
-    background-image: url(Images/mechanical.jpg);
+
+.branchimage {
+    position: absolute;
+    opacity: 0.7;
 }
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-.ChooseBranch {
-    display: flex;
-    flex-direction: column;
+.branchquote {
+    text-align: center;
+    padding: 10px;
+    padding-top: 3vh;
+    display: block;
+    position: relative;
+    z-index: 1;
+    font-size: 1.1rem;
 }
 
-.ChooseBranch-item{
-        display: contents;
-        position: absolute;
-        font-size: 3vh;
+/* Responsive design */
+
+@media screen and (max-width: 600px) {
+    .Branches {
+        grid-template-columns: repeat(auto-fit, minmax(170px, 0.9fr));
     }
     
 }
-
-
-
-
-
-
-.branch {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-
-
-
-.branchimg {
-    width: 250px;
-    margin-right: 50px;
-}
-

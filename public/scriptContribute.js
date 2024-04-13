@@ -9,6 +9,13 @@ const db = getFirestore(app);
 
 const storage = getStorage(app);
 
+// Initialize Quill
+var quill = new Quill('#articleContent', {
+    theme: 'snow'
+});
+
+
+
 // for colleges dropdown
 
 // Fetch the college list from the database
@@ -31,8 +38,6 @@ getDocs(colleges).then((querySnapshot) => {
 
     querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-        console.log(doc.data().collegeName);
         const option = document.createElement('option');
         option.value = doc.data().collegeName;
         option.text = doc.data().collegeName;
@@ -113,7 +118,7 @@ async function submitContribution() {
     }
 
     if (form.uploadType.value === 'article') {
-        const articleContent = form.articleContent.value;
+        const articleContent = quill.root.innerHTML;
 
         // Check if article content is provided
         if (!articleContent.trim()) {
@@ -150,7 +155,7 @@ async function submitContribution() {
             college: form.college.value,
             year: form.year.value,
             submissionDate: form.submissionDate.value,
-            article: form.articleContent.value,
+            article: quill.root.innerHTML,
             file: articleDownloadURL,
             time: time
         };
@@ -213,7 +218,7 @@ async function submitContribution() {
                         college: form.college.value,
                         year: form.year.value,
                         submissionDate: form.submissionDate.value,
-                        article: form.articleContent.value,
+                        article: quill.root.innerHTML,
                         file: downloadURL,
                         time: new Date().getTime()
                     };

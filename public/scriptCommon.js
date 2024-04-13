@@ -69,8 +69,13 @@ onAuthStateChanged(auth, (user) => {
 
         signUpLink.innerHTML = "Logout";
         signUpLinkMobile.innerHTML = `<i class="fa fa-sign-out"> Logout</i>`;
+        signUpLink.href = "#";
+        signUpLinkMobile.href = "#";
         signUpLink.id = "logout-link";
         signUpLinkMobile.id = "m-logout-link";
+        signUpLink.addEventListener('click', function () {
+            Logout();
+        });
     } else {
         // No user is signed in.
         loginLink.href = "login.html";
@@ -78,26 +83,28 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+function Logout() {
+    auth.signOut().then(function () {
+        // Sign-out successful, redirect to login page
+        window.location.href = "login.html";
+    }).catch(function (error) {
+        // An error happened during sign out
+        console.error('Sign out error', error);
+    });
+}
+
 if (logoutLink) {
-    // Logout button functionality
     logoutLink.addEventListener('click', function () {
-        auth.signOut().then(function () {
-            // Sign-out successful, redirect to login page
-            window.location.href = "login.html";
-        }).catch(function (error) {
-            // An error happened during sign out
-            console.error('Sign out error', error);
-        });
+        Logout();
     });
 }
-if(logoutLinkMobile) {
+
+if (logoutLinkMobile) {
     logoutLinkMobile.addEventListener('click', function () {
-        auth.signOut().then(function () {
-            // Sign-out successful, redirect to login page
-            window.location.href = "login.html";
-        }).catch(function (error) {
-            // An error happened during sign out
-            console.error('Sign out error', error);
-        });
+        Logout();
     });
 }
+
+setTimeout(() => {
+    document.getElementById('namskar').innerHTML = "नमस्कार";
+}, 2000);

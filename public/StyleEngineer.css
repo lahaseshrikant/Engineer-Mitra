@@ -1,16 +1,14 @@
 /* common style for all pages */
 
-
 body {
-    /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #434343, #000000);
-    /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #434343, #000000);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
-    
     color: white;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     padding: 0;
 }
 
@@ -19,7 +17,9 @@ header {
     justify-content: space-between;
     align-items: flex-start;
     height: 40px;
-    border-bottom: 1px solid #2d2c2c;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 10px 10px;
 }
 
 .logo {
@@ -27,11 +27,9 @@ header {
     height: 40px;
 }
 
-/* Style for the navigation bar */
 .navbar {
     display: flex;
     justify-content: flex-end;
-    /* Align links to the right */
     align-items: center;
     overflow: hidden;
     z-index: 100;
@@ -47,7 +45,6 @@ header {
     transition: 0.3s;
 }
 
-/* Navigation bar links */
 .navbar a {
     color: white;
     text-align: center;
@@ -58,13 +55,11 @@ header {
     font-size: 20px;
 }
 
-/* On hover, the links will change color */
 .navbar a:hover {
     color: #19721e;
 }
 
 /* Responsive navigation menu */
-
 .navbar-mobile {
     display: none;
 }
@@ -74,12 +69,34 @@ header {
 }
 
 footer {
-    color: white;
+    background-color: #0e0d0d;
+    color: #ffffff;
+    padding: 20px;
     text-align: center;
-    min-height: 20vh;
-    bottom: 0;
-    width: 100%;
-    padding-top: 10vh;
+    margin-top: auto;
+}
+
+.footer-content h3, .footer-content p {
+    margin-bottom: 10px;
+}
+
+.socials {
+    list-style: none;
+    padding: 0;
+}
+
+.socials li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.socials a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 600px) {
@@ -183,19 +200,9 @@ footer {
     }
 }
 
-.ChooseBranch {
+.Branches {
     color: white;
 }
-
-
-
-
-.alter {
-    height: 100vh;
-}
-
-
-
 
 /* STYLE FOR ABOUT PAGE */
 #h1About {
