@@ -22,10 +22,11 @@
     transition: background-color 0.3s ease;
     position: relative;
     overflow: hidden;
+    min-height: 25vh;
 }
 
 .Branches-item:hover {
-    background-color: #555;
+    background-color: aqua;
 }
 
 .branchtext {
@@ -42,6 +43,7 @@
 .branchimage {
     position: absolute;
     opacity: 0.7;
+    width: 100%;
 }
 
 .branchquote {
@@ -60,5 +62,7 @@
     .Branches {
         grid-template-columns: repeat(auto-fit, minmax(170px, 0.9fr));
     }
-    
+    .Branches-item{
+        min-height: 15vh;
+    }
 }
