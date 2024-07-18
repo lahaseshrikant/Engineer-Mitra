@@ -14,8 +14,6 @@ var quill = new Quill('#articleContent', {
     theme: 'snow'
 });
 
-
-
 // for colleges dropdown
 
 // Fetch the college list from the database
