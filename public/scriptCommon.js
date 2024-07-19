@@ -32,17 +32,7 @@ function closeNavbarOnClickOutside(event) {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAvsKMRtnF0CY0RvNbG6_XoleZhJOs6Ub0",
-    authDomain: "engineer-mitra.firebaseapp.com",
-    databaseURL: "https://engineer-mitra-default-rtdb.firebaseio.com",
-    projectId: "engineer-mitra",
-    storageBucket: "engineer-mitra.appspot.com",
-    messagingSenderId: "999063294330",
-    appId: "1:999063294330:web:d7b8b673986f858e53c6c3",
-    measurementId: "G-J2NB2EBPJQ"
-};
+import { firebaseConfig } from "./firebaseConfig.js"
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
