@@ -1,5 +1,4 @@
-
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyAvsKMRtnF0CY0RvNbG6_XoleZhJOs6Ub0",
     authDomain: "engineer-mitra.firebaseapp.com",
     databaseURL: "https://engineer-mitra-default-rtdb.firebaseio.com",
