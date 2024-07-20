@@ -1,7 +1,11 @@
-import { getFirestore, collection, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs, doc, getDoc,  query, orderBy  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const db = getFirestore(app);
+
 let currentTab = 'Theory'; // Variable to store the current active tab
+let currentContentIndex = 0; // To track the current content (assignment or PYQ)
+let assignmentsArray = []; // To store all the assignments for navigation
+let pyqsArray = []; // To store all the PYQs for navigation
 
 window.openTab = function (evt, tabName, subject) {
   let i, tabcontent, tablinks;
@@ -71,7 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
   async function loadSubjectDetails(subject) {
     const detailsContainer = document.getElementById('subjectDetails');
   
-    const theoryCollection = await getDocs(collection(db, "Engineering_Subjects_Data", "Data", branch, subject, "Theory"));
+    // Construct the query with sorting
+    const theoryQuery = query(
+      collection(db, "Engineering_Subjects_Data", "Data", branch, subject, "Theory"),
+      orderBy("index") // Ensure "index" is the field you want to sort by
+    );
+
+    const theoryCollection = await getDocs(theoryQuery);
     const assignmentsCollection = await getDocs(collection(db, "Engineering_Subjects_Data", "Data", branch, subject, "Assignments"));
     const pyqsCollection = await getDocs(collection(db, "Engineering_Subjects_Data", "Data", branch, subject, "PYQs"));
   
@@ -79,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let theoryContent ='';
   
     if (!theoryCollection.empty) {
+      // Assuming theoryCollection is an array of objects and we're sorting by the 'name' property
+      
       theoryCollection.forEach(doc => {
         const data = doc.data();
         theoryIndex += `<li><a href="#${data.index}">${data.index}</a></li>`;
@@ -90,29 +102,32 @@ document.addEventListener('DOMContentLoaded', () => {
     theoryIndex += '</ul>';
   
     let assignmentsContent = '<h2>Assignments</h2>';
+    assignmentsArray = [];
     if (!assignmentsCollection.empty) {
       assignmentsContent += '<table><thead><tr><th>Title</th><th>Link</th></tr></thead><tbody>';
-      assignmentsCollection.forEach(doc => {
+      for (const doc of assignmentsCollection.docs) {
         const data = doc.data();
-        assignmentsContent += `<tr><td>${data.assignmentId}</td><td><a href="${data.file_link}">${data.file_linklink}</a></td></tr>`;
-      });
+        assignmentsContent += `<tr><td><a href="#" class="assignment-title" data-subject="${subject}" data-assignment-id="${data.assignmentId}">${data.assignmentId}</a></td><td><a href="${data.file_link}">${data.file_link}</a></td></tr>`;
+        assignmentsArray.push(data); // Add data to assignmentsArray for navigation
+      }
       assignmentsContent += '</tbody></table>';
     } else {
       assignmentsContent += '<p>No assignments available.</p>';
     }
   
     let pyqsContent = '<h2>Previous Year Papers</h2>';
+    pyqsArray = [];
     if (!pyqsCollection.empty) {
       pyqsContent += '<table><thead><tr><th>Title</th><th>Year</th><th>College</th><th>Link</th></tr></thead><tbody>';
-      pyqsCollection.forEach(doc => {
+      for (const doc of pyqsCollection.docs) {
         const data = doc.data();
-        pyqsContent += `<tr><td>${data.pyqId}</td><td>${data.year}</td><td>${data.collegeName}</td><td><a href="${data.file_link}">${data.file_link}</a></td></tr>`;
-      });
+        pyqsContent += `<tr><td><a href="#" class="pyq-title" data-subject="${subject}" data-pyq-id="${data.pyqId}">${data.pyqId}</a></td><td>${data.year}</td><td>${data.collegeName}</td><td><a href="${data.file_link}">${data.file_link}</a></td></tr>`;
+        pyqsArray.push(data); // Add data to pyqsArray for navigation
+      }
       pyqsContent += '</tbody></table>';
     } else {
       pyqsContent += '<p>No previous year papers available.</p>';
     }
-  
   
     detailsContainer.innerHTML = `
       <div class="tab">
@@ -134,11 +149,96 @@ document.addEventListener('DOMContentLoaded', () => {
       <div id="Papers-${subject}" class="tabcontent">
         ${pyqsContent}
       </div>
+      <div id="ContentFrame" class="content-frame" style="display: none;">
+        <button id="closeFrame">X</button>
+        <button id="prevContent">Prev</button>
+        <button id="nextContent">Next</button>
+        <h2>Content Details</h2>
+        <div id="ContentDetails"></div>
+      </div>
     `;
   
     // Trigger click on the current active tab to maintain the active tab view
     document.querySelector(`.tablinks[data-tab="${currentTab}"][data-subject="${subject}"]`).click();
+
+    // Add event listeners to assignment titles
+    document.querySelectorAll('.assignment-title').forEach(title => {
+      title.addEventListener('click', async function(event) {
+        event.preventDefault();
+        const subject = this.getAttribute('data-subject');
+        const assignmentId = this.getAttribute('data-assignment-id');
+        currentContentIndex = assignmentsArray.findIndex(assignment => assignment.assignmentId === assignmentId);
+        await showContentDetails('Assignments', currentContentIndex, subject);
+      });
+    });
+
+    // Add event listeners to PYQ titles
+    document.querySelectorAll('.pyq-title').forEach(title => {
+      title.addEventListener('click', async function(event) {
+        event.preventDefault();
+        const subject = this.getAttribute('data-subject');
+        const pyqId = this.getAttribute('data-pyq-id');
+        currentContentIndex = pyqsArray.findIndex(pyq => pyq.pyqId === pyqId);
+        await showContentDetails('PYQs', currentContentIndex, subject);
+      });
+    });
+
+    // Handle previous and next buttons
+    document.getElementById('prevContent').addEventListener('click', function() {
+      if (currentContentIndex > 0) {
+        currentContentIndex--;
+        showContentDetails(currentTab, currentContentIndex, subject);
+      }
+    });
+
+    document.getElementById('nextContent').addEventListener('click', function() {
+      if (currentContentIndex < (currentTab === 'Assignments' ? assignmentsArray.length : pyqsArray.length) - 1) {
+        currentContentIndex++;
+        showContentDetails(currentTab, currentContentIndex, subject);
+      }
+    });
+
+    document.getElementById('closeFrame').addEventListener('click', function() {
+      document.getElementById('ContentFrame').style.display = 'none';
+    });
   }
+
+  async function showContentDetails(type, index, subject) {
+    let contentData;
+    if (type === 'Assignments') {
+      contentData = assignmentsArray[index];
+    } else if (type === 'PYQs') {
+      contentData = pyqsArray[index];
+    }
+
+    if (contentData) {
+      const questionsCollection = collection(db, "Engineering_Subjects_Data", "Data", determineBranchFromUrlOrTitle(), subject, type, contentData.assignmentId || contentData.pyqId, "Questions");
+      const questionsSnapshot = await getDocs(questionsCollection);
+      const questionsData = [];
+
+      questionsSnapshot.forEach((doc) => {
+        questionsData.push(doc.data());
+      });
+
+      const contentFrame = document.getElementById('ContentFrame');
+      const contentDetails = document.getElementById('ContentDetails');
+      const title = type === 'Assignments' ? contentData.assignmentId : contentData.pyqId;
+      const link = contentData.file_link;
+      let questionsHtml = '';
+
+      questionsData.forEach((question) => {
+        questionsHtml += `<div class="question"><h3>Question</h3><p>${question.questionText}</p><h4>Solution:</h4><p>${question.solution}</p></div>`;
+      });
+
+      contentDetails.innerHTML = `
+        <h2>${title}</h2>
+        <p>Link: <a href="${link}" target="_blank">${link}</a></p>
+        ${questionsHtml}
+      `;
+      contentFrame.style.display = 'block';
+    }
+  }
+
   function determineBranchFromUrlOrTitle() {
     // Example: Check URL for branch name
     const url = window.location.href;
@@ -159,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Default to a specific branch if not found in URL or title
     return 'defaultBranch';
-    }
+  }
 });
 
 

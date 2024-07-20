@@ -164,3 +164,35 @@ button.tablinks.active {
 button.tablinks:hover {
     background-color: #ddd;
 }
+
+.content-frame {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-frame button {
+    float: right;
+    margin: 5px;
+}
+
+#ContentDetails {
+    margin-top: 20px;
+}
+
+.question{
+    margin: 3px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    border-bottom: 4px solid #ccc;
+}
