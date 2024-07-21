@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const fetch = require('node-fetch');
 
-const RENDERTRON_URL = 'https://YOUR_PROJECT_ID.appspot.com/render'; // Replace with your Rendertron instance URL
+const RENDERTRON_URL = 'https://engineer-mitra.appspot.com/render'; // Replace with your Rendertron instance URL
 
 exports.rendertron = functions.https.onRequest((req, res) => {
   const url = `${RENDERTRON_URL}/${req.url}`;
