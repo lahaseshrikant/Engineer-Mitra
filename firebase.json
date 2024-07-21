@@ -6,7 +6,6 @@
       "**/.*",
       "**/node_modules/**"
     ],
-
     "rewrites": [
       {
         "source": "**",
@@ -69,75 +68,74 @@
         "destination": "/material/metallurgy.html"
       }
     ],
-
     "redirects": [
       {
-        "source": "*index.html",
+        "source": "*/index.html",
         "destination": "/home",
         "type": 301
       },
       {
-        "source": "*material.html",
+        "source": "*/material.html",
         "destination": "/material",
         "type": 301
       },
       {
-        "source": "*contribute.html",
+        "source": "*/contribute.html",
         "destination": "/contribute",
         "type": 301
       },
       {
-        "source": "*about.html",
+        "source": "*/about.html",
         "destination": "/about",
         "type": 301
       },
       {
-        "source": "*login.html",
+        "source": "*/login.html",
         "destination": "/login",
         "type": 301
       },
       {
-        "source": "*signup.html",
+        "source": "*/signup.html",
         "destination": "/signup",
         "type": 301
       },
       {
-        "source": "*profile.html",
+        "source": "*/profile.html",
         "destination": "/profile",
         "type": 301
       },
       {
-        "source": "*material/civil.html",
+        "source": "*/material/civil.html",
         "destination": "/material/civil",
         "type": 301
       },
       {
-        "source": "*material/mechanical.html",
+        "source": "*/material/mechanical.html",
         "destination": "/material/mechanical",
         "type": 301
       },
       {
-        "source": "*material/electrical.html",
+        "source": "*/material/electrical.html",
         "destination": "/material/electrical",
         "type": 301
       },
       {
-        "source": "*material/electronics.html",
+        "source": "*/material/electronics.html",
         "destination": "/material/electronics",
         "type": 301
       },
       {
-        "source": "*material/computerscience.html",
+        "source": "*/material/computerscience.html",
         "destination": "/material/computerscience",
         "type": 301
       },
       {
-        "source": "*material/chemical.html",
+        "source": "*/material/chemical.html",
         "destination": "/material/chemical",
         "type": 301
       },
       {
-        "source": "*material/metallurgy.html",
+        "source": "*/material/metallurgy.html",
         "destination": "/material/metallurgy",
         "type": 301
       }
