@@ -95,6 +95,11 @@ if (logoutLinkMobile) {
     });
 }
 
-setTimeout(() => {
-    document.getElementById('namskar').innerHTML = "नमस्कार";
+setInterval(() => {
+    if(document.getElementById('namskar').innerHTML=="Welcome"){
+        document.getElementById('namskar').innerHTML = "नमस्कार";
+    }
+    else{
+        document.getElementById('namskar').innerHTML = "Welcome";
+    }
 }, 2000);
